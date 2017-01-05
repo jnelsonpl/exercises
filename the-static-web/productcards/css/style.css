@@ -37,7 +37,7 @@ h5 {
 
 article > header {
 	text-align: center;
-	/* Why will a border not display? */
+	border-bottom: lightgrey dotted 1px;
 }
 
 img {
