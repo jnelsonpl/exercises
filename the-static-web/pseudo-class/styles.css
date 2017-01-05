@@ -1,0 +1,28 @@
+li.block {
+	color: red;
+	display: inline;
+	list-style-type: none; 
+}
+
+span.inline {
+	display: block;
+	border: 1px black solid;
+	margin: 25px;
+}
+
+.n-child :nth-child(2n+0) { 
+	border: 1px solid blue;
+}
+
+
+.n-type {
+
+}
+
+.first-of-type {
+
+}
+
+.three {
+
+}
