@@ -7,23 +7,16 @@
   <title></title>
   <meta name="description" content="">
   <meta name="author" content="Jordan Nelson">
-  
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
 </head>
 
 <body>
 
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-md-6">
+      <header><h1>This is a basic form</h1></header>
 
-      <header>This is a basic form</header>
+      <form>
 
-      <br><br>
-
-      <form action="postdata.html" method="POST">
-        <fieldset>
+      <fieldset>
 
           <legend>Your Information</legend>
 
@@ -56,8 +49,8 @@
             <label for="employer-address">Employer Address:</label>
             <input type="text" name="employer-address">
 
-            <br />
-
+      </fieldset><br />
+      <fieldset>
             <label for="loan">Select your type of loan:</label>
             <select>
               <option value="Commercial">i. Commercial</option>
@@ -71,7 +64,7 @@
             <label for="loan_amount">Request Amount of Loan:</label>
             <input type="text" name="loan_amount">
 
-            <br />
+            <br /><br />
 
             <fieldset>
             <label for="loan_length">Length of Loan:</label><br />
@@ -89,31 +82,26 @@
             <input type="checkbox" name="married">iii. Married<br />
             <input type="checkbox" name="cosigner">iv. Loan will be co-signed<br />
             </fieldset>
+            </fieldset>
 
             <br />
-
+            <fieldset>
+            Additional Information:<br>
             <textarea></textarea>
 
-            <br /><br />
+            <br />
 
             <label for="email">Email:</label><br />
             <input type="email" name="email" placeholder="sample@sample.com"><br />
 
-            <br />
-
             <label for="telephone">Enter your phone:</label><br />
-            <input type="tel" name="telephone" placeholder="555=555-555">
-
-            <br /><br />
+            <input type="tel" name="telephone" placeholder="555-555-555"><br />
 
             <label for="linkedin_profile">Linkedin Profile:</label><br />
             <input type="url" name="linkedin">
 
-            <br /><br />
-
-        </fieldset>
-      </form>
-      </div></div></div>
+            <br />
+</fieldset></fieldset></form>
 
 </body>
 </html>
