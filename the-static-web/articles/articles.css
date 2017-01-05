@@ -1,0 +1,49 @@
+#article_one {
+	background-color: lightgrey;
+	font-family: verdana;
+	font-size: 10px;
+	color: blue;
+	line-height: 100%;
+	padding: 20px;
+	border-radius: 30px;
+}
+
+#article_two {
+	background-color: lightblue;
+	font-family: arial;
+	font-size: 8px;
+	color: tomato;
+	line-height: 90%;
+	padding: 10px;
+	border-radius: 10px 5px 10px 5px;
+}
+
+#article_three {
+	background-color: orange;
+	font-family: "Comic Sans MS", cursive, sans-serif;
+	font-size: 14px;
+	color: blue;
+	line-height: 1.2em;
+	padding: 2px;
+	border-radius: 15px 13px 0px 0px;
+}
+
+#article_four {
+	background-color: lightgreen;
+	font-family: "Times New Roman", Times, serif;
+	font-size: 2em;
+	color: red;
+	line-height: 50%%;
+	padding: 20px;
+	border-radius: 4px 5px 10px;
+}
+
+#article_five {
+	background-color: magenta;
+	font-family: Impact, Charcoal, sans-serif;
+	font-size: 0.9em;
+	font-color: white;
+	line-height: 1.2em;
+	padding: 5px;
+	border-radius: 2px 2px;
+}
