@@ -4,10 +4,15 @@ var fullNames = [];
 
 var hohohoElement = document.getElementById("coloredReindeer");
 
+var toHTML = "";
 
-for (var i = 0; i < colors.length; i++) {
-	for (var j = 0; j < reindeer.length; j++) {
-		fullNames.push(colors[i] + " " + reindeer[j] + "<br />");
-	}
+for (var i = 0; i < reindeer.length; i++) {
+	var aReindeer = reindeer[i];
+	var aColor = colors[i];
+
+	toHTML += "<p>" + aColor + " " + aReindeer + "</p>";
 }
-hohohoElement.innerHTML = fullNames;
+
+hohohoElement.innerHTML = toHTML;
+
+
