@@ -10,6 +10,8 @@ function coinCounter (getChange) {
   // Initialize a JavaScript object to hold the coins
   var coinPurse = {};
 
+  getChange = getChange * 100;
+
   // getChange is amount of money (67)
   var quarterRemainder = getChange % 25; // take input (getChange (67)) and get the remainder from 25, ie. 17.
   var quarterSubGetChangeFromRemainder = getChange - quarterRemainder; // Subtract the input (getChange (67)) from remainder (17), var is 50.
