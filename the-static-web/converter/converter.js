@@ -1,28 +1,28 @@
-function toCelsius (inputFahrenheit) {
-	var tempCelsius = (inputFahrenheit - 32) * 5;
-	tempCelsius = tempCelsius / 9;
+
+function toCelsius () {
+	var inputTemperature = parseFloat(document.getElementById("temperature").value);
+	var tempCelsius = ( (inputTemperature - 32) * 5) / 9;
 	console.log(tempCelsius);
 }
 
-function toFahrenheit (inputCelsius) {
-	var tempFahrenheit = (inputCelsius * 9) / 5;
-	tempFahrenheit = tempFahrenheit + 32;
+function toFahrenheit () {
+	var inputTemperature = parseFloat(document.getElementById("temperature").value);
+	var tempFahrenheit = ( (inputTemperature * 9) / 5) + 32;
 	console.log(tempFahrenheit);
 }
 
 // Get a reference to the button element in the DOM
 var button = document.getElementById("converter");
 
-// This function should determine which conversion should
-// happen based on which radio button is selected.
-function determineConverter (clickEvent) {
+// This function determines which radio button is selected and runs toFahrenheit or toCelsius
+function determineConverter () {
 	if (document.getElementById("fahrenheit").checked === true) {
 		toFahrenheit();
 	} else if (document.getElementById("celsius").checked === true) {
 		toCelsius();
+	} else {
+		alert("Select Fahrenheit or Celsius to convert temperature");
 	}
-
-  console.log("event", clickEvent);
 }
 
 // Add an event handler to the input field that checks if the user pressed the enter key, 
@@ -30,3 +30,5 @@ function determineConverter (clickEvent) {
 
 // Assign a function to be executed when the button is clicked
 button.addEventListener("click", determineConverter);
+
+
