@@ -18,9 +18,7 @@ var button = document.getElementById("converter");
 function determineConverter (clickEvent) {
 	if (document.getElementById("fahrenheit").checked === true) {
 		toFahrenheit();
-	}
-	
-	if (document.getElementById("celsius").checked === true) {
+	} else if (document.getElementById("celsius").checked === true) {
 		toCelsius();
 	}
 
