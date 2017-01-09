@@ -1,14 +1,17 @@
+function toFahrenheit () {
+	var inputTemperature = parseFloat(document.getElementById("temperature").value);
+	var tempFahrenheit = ( (inputTemperature * 9) / 5) + 32;
+	
+	var x = document.getElementById("converted_temperature");
+	x.innerHTML = "The temperature in fahrenheit is: " + tempFahrenheit;
+}
 
 function toCelsius () {
 	var inputTemperature = parseFloat(document.getElementById("temperature").value);
 	var tempCelsius = ( (inputTemperature - 32) * 5) / 9;
-	console.log(tempCelsius);
-}
 
-function toFahrenheit () {
-	var inputTemperature = parseFloat(document.getElementById("temperature").value);
-	var tempFahrenheit = ( (inputTemperature * 9) / 5) + 32;
-	console.log(tempFahrenheit);
+	var y = document.getElementById("converted_temperature");
+	y.innerHTML = "The temperature in celsius is: " + tempCelsius;
 }
 
 // Get a reference to the button element in the DOM

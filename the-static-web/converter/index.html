@@ -5,6 +5,7 @@
 </head>
 <body>
 
+	<form> 
 	<p>Enter a temperature to convert:</p>
 	<input type="text" id="temperature">
 
@@ -13,10 +14,14 @@
 	<input type="radio" id="fahrenheit">Fahrenheit
 	<input type="radio" id="celsius">Celsius
 
-	<p id="converted_temperature"></p>
+	<br /><br />
 
 	<input type="button" value="Convert" id="converter">
-	<input type="button" value="Reset">
+	<button type="reset" value="Reset">Reset</button>
+
+	</form>
+
+	<p id="converted_temperature"></p>
 
 
 <script type="text/javascript" src="converter.js"></script>
