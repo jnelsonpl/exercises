@@ -1,7 +1,7 @@
 
 console.log("Increment by 10 Assignment: ");
 
-for (var i = 5; i < 120; i = i + 10) {
+for (var i = 5; i < 120; i+= 10) {
 	console.log(i);
 }
 
@@ -9,7 +9,7 @@ console.log("---Complete---");
 console.log("");
 console.log("Decrement by Division Assignment: ");
 
-for (var j = 4096; j > 1; j = j / 2) {
+for (var j = 4096; j > 1; j /= 2) {
 	console.log(j);
 }
 
