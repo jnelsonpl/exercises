@@ -1,0 +1,114 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Music History</title>
+
+  <link rel="stylesheet" type="text/css" href="styles/style.css">
+
+</head>
+
+<body>
+
+	<br>
+
+	<nav>
+		<ul>
+		<li>View Music</li>
+		<li>|</li>
+		<li><a href="#">Add Music</a></li>
+		<li>|</li>
+		<li><a href="#">Profile</a></li>
+		</ul>
+	</nav>
+
+	<br>
+
+	<div id="container">
+
+		<div id="left-sidebar">
+
+			<h4>Song Length:</h4>
+			<input type="range" id="song_length_slider">
+
+			<h4>Artist:</h4>
+			<select id="artist">
+				<option value="Options" selected>Options</option>
+				<option value="Chvrches">Chvrches</option>
+				<option value="Smashing_Pumpkins">Smashing Pumpkins</option>
+				<option value="Fleetwood_Mac">Fleetwood Mac</option>
+				<option value="Florence_Machine">Florence & The Machine</option>
+			</select>
+
+			<h4>Album:</h4>
+			<select id="album">
+				<option value="Options" selected>Options</option>
+				<option value="Every_Open_Eye">Every Open Eye</option>
+				<option value="Zeitgeist">Zeitgeist</option>
+				<option value="Rumours">Rumours</option>
+				<option value="Ceremonials">Ceremonials</option>
+			</select>
+
+
+			<h4>Genre:</h4>
+
+	   		<ul class="checkboxes">
+	   			<li> <input type="checkbox"> Rock </li>
+	   			<li> <input type="checkbox"> Alternative </li>
+	   			<li> <input type="checkbox"> Pop </li>
+	   		</ul>
+
+	   		<ul class="checkboxes">
+	   			<li> <input type="checkbox"> Classical </li>
+	   			<li> <input type="checkbox"> Jazz </li>
+	   			<li> <input type="checkbox"> Hip Hop </li>
+	   		</ul>
+
+			<br /></br />
+
+			<div id="filter_button_div">
+				<button type="button" id="filter_button" value="Filter">Filter</button>
+			</div>
+
+		</div>
+
+		<div id="right-content">
+
+			<section id="song1" class="song_list">
+				<h3>Recover</h3>
+
+				Chvrches | Recover EP | Alternative
+			</section>
+
+			<section id="song2" class="song_list">
+				<h3>Song Name</h3>
+
+				Smashing Pumpkins | Zeitgeist | Rock
+			</section>
+
+			<section id="song3" class="song_list">
+				<h3>Go Your Own Way</h3>
+
+				Fleetwood Mac | Rumours | Rock
+			</section>
+
+			<section id="song4" class="song_list">
+				<h3>Only If for a Night</h3>
+
+				Florence & The Machine | Ceremonials | Rock
+			</section>
+
+			<h3>From Music History Assignment (v.2):</h3>
+
+			<section id="arraySong" class="song_list">
+			</section>
+
+		</div>
+
+	</div>
+
+<script type="text/javascript" src="songs.js"></script>
+
+</body>
+</html>
