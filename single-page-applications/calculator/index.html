@@ -5,26 +5,47 @@
 </head>
 <body>
 
+	<form>
+		<h2>Enter Two Values and Press a Button to Calculate</h2>
+		<h3>Value One:</h3>
 
-	<h3>Field One:</h3>
-	<input type="number" id="fieldOne" value="">
+		<input type="number" id="fieldOne" value="">
+
+		<br /><br />
+
+		<h3>Value Two:</h3>
+		<input type="number" id="fieldTwo" value="">
+
+		<br /><br />
+
+		<input type="button" value="multiply" id="multiply">
+		<input type="button" value="add" id="add">
+		<input type="button" value="subtract" id="subtract">
+		<input type="button" value="divide" id="divide">
+		<input type="button" value="clear" id="clear" onclick="this.form.reset()">
+	</form>
 
 	<br /><br />
 
-
-	<h3>Field Two:</h3>
-	<input type="number" id="fieldTwo" value="">
-
-	<br /><br />
-
-	<input type="button" value="multiply" id="multiply" onclick="multiplyTwo()">
-	<input type="button" value="add" id="add" onclick="addTwo()">
-	<input type="button" value="subtract" id="subtract" onclick="subtractTwo()">
-	<input type="button" value="divide" id="divide" onclick="divideTwo()">
-
-	<br /><br />
-
+	<p>The answer is:</p>
 	<p id="answerhere">
+	</p>
+
+	<br />
+
+	<h3>Three Argument Function</h3>
+	<p>Enter two numbers and we will multiply the sum by itself.</p>
+
+	<form>
+		<input type="number" id="arg1" value="">
+		<input type="number" id="arg2" value="">
+
+		<input type="button" value="Do It" id="addthenmultiply">
+		<input type="button" value="Clear" id="clear" onclick="this.form.reset()">
+	</form>
+
+	<p>The answer is:</p>
+	<p id="answerforthree">
 	</p>
 
 <script src="calculator.js" type="text/javascript"></script>
