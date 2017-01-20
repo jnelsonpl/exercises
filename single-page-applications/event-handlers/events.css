@@ -1,0 +1,20 @@
+.blue {
+ color: blue;
+}
+
+.large {
+ font-size: 4em;
+}
+
+.bordered {
+ border: 2px dotted purple;
+}
+
+.rounded {
+ border-radius: 10px;
+ border: 1px solid;
+}
+
+.bold {
+	font-weight: bold;
+}
