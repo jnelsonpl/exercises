@@ -11,10 +11,10 @@ function stackLetters (theAlphabetArray) {
      */
 
     for (var i = 0; i < letters.length; i++) {
-		theAlphabetArray.push(letters.substr(0, i));
+		theAlphabetArray.push(letters.substr(0, (i)));
 	}
 	console.log(theAlphabetArray);
 }
 
 // Invoke the function and pass in the array
-stackLetters(alphabet)
+stackLetters(alphabet);
