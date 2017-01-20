@@ -51,7 +51,6 @@ rounded.addEventListener("click", function() {
 	guinea.classList.toggle("rounded");
 });
 
-
+/*
 articleEL.classList.add("bold");
-
-
+*/
