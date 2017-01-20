@@ -1,12 +1,32 @@
 
-// Things to do
-// - Only accept letters
-// - Prevent the functions from repeadly writing to DOM
-// - Add enter keypress instead of button
-// - Prevent empty values
+// how to clear after written to dom?
 
 var submitButton = document.getElementById("functionbutton"); // grab the content in the input
 var results = document.getElementById("displayfunctions"); // variable to display the results
+
+submitButton.addEventListener("click", checkEmpty);
+function checkEmpty() {
+	var a = document.getElementById("userinput").value;
+	if (a == "") {
+		alert("Enter Text");
+	}
+}
+
+document.getElementById("userinput").onkeypress = function(e) {
+	if (e.keyCode === 13) {
+		e.preventDefault();
+		submitButton.click();
+	}
+}
+
+submitButton.addEventListener("click", checkChar);
+function checkChar() {
+	var checkCharacters = document.getElementById("userinput").value;
+	if (checkCharacters.match(/\d+/g)) {
+		alert("No Numbers");
+		location.reload();
+	}
+}
 
 submitButton.addEventListener("click", reversal);
 function reversal(reverseMe) {
@@ -40,11 +60,11 @@ function palindrome(isTheSame) {
 	return isTheSame;
 }
 
-/*
+/* 
 var testString = "";
 reversal(testString);
 alphabits(testString);
-palindrome(testString);
-*/
+palindrome(testString); */
+
 
 
