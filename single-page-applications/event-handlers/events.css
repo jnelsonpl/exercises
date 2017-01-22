@@ -1,5 +1,5 @@
 .blue {
- color: blue;
+	color: blue;
 }
 
 .large {
@@ -17,4 +17,12 @@
 
 .bold {
 	font-weight: bold;
+}
+
+.italic {
+	font-style: italic;
+}
+
+.block {
+	display: block;
 }
