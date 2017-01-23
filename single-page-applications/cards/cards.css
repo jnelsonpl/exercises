@@ -1,0 +1,9 @@
+.create_card {
+	height: 100px;
+	width: 150px;
+	background: orange;
+	color: blue;
+	border: 2px solid red;
+	padding: 10px;
+	margin: 10px;
+}
