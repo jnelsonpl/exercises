@@ -49,6 +49,7 @@ var famousPeople = [
 
 // Add all the objects to the DOM
 var outputEl = document.getElementById("outputEl");
+
 for (var i = 0; i < famousPeople.length; i++) {
 
   var title = famousPeople[i].title;
@@ -60,30 +61,33 @@ for (var i = 0; i < famousPeople.length; i++) {
 
   outputEl.innerHTML += `
       <div class="person_container" id="person--${famousPeople.length}">
-        <b>Title:</b> ${title}<br />
-        <b>Name:</b> ${name}<br />
-        <b>Biography:</b>
-        <p class="biography" id="person--${famousPeople.length}">
-        ${bio}
-        </p>
-        <b>Birth:</b> ${birth} - ${death}<br />
-      <img src="${image}" width="200" height="200">
+        <p>Title: ${title} Name: ${name}</p>
+        <p>Biography: ${bio}</p>
+        <p>Birth: ${birth} - ${death}</p>
+        <p><img src="${image}" width="200" height="200"></p>
       </div>`
 }
 
 // We are grabbing the containers we just created "person_container"
 var containerEl = document.getElementsByClassName("person_container");
 
-// Event listeners are created for containerEL (class is personal_container)
+// Event listeners are created for containerEl (class is personal_container)
+// so we can toggle the class on and off
 for (var i = 0; i < containerEl.length; i++) {
     containerEl[i].addEventListener("click", function (event) {
           this.classList.toggle("dotted");
     })
 }
 
+// our text area
+var input = document.getElementById("editbiography");
+input.addEventListener("keyup", textToBio);
 
-
-
-
-
-
+function textToBio() {
+    for (var j = 0; j < famousPeople.length; j++) {
+        if (containerEl[j].classList.contains("dotted")) {
+              containerEl[j].childNodes[3].innerHTML = input.value;
+                  
+        }
+    }
+}
