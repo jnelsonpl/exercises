@@ -49,13 +49,12 @@ function createCard () {
 	deleteButton.appendChild(deleteButtonText);
 	document.body.appendChild(deleteButton);
 
-// NOTE: THIS ONLY WORKS ONCE - Any previous times it does not work :(
+// NOTE: this works but creates multiple buttons only one of which works
 	var deleteTheCard = document.getElementById("deletebutton").addEventListener("click", deleteCard);
 	function deleteCard() {
 		this.parentNode.removeChild(createDivCard);
 		// cannot get delete function to work - will figure out later, going down rabbit hole :()
 	}
-
 }
 
 
