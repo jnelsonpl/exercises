@@ -22,5 +22,5 @@ for (var i = 0; i < songs.length; i++) {
 	var x = songs[i].replace(/>/g, "-");  // Code from StackOverflow, replace > with -
 	var y = x.replace(/\*|!|@|\(|/g, ""); // Replace 'messy' characters with ""
 
-	insertSong.innerHTML += "<br>" + y;
+	insertSong.innerHTML += "<br><i>" + y + "</i>"
 }
