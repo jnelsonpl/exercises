@@ -29,6 +29,7 @@ document.body.appendChild(valueButton);
 // 5 - We append the DIV to the DOM and set it's innerHTML value to the value of the <textarea>
 var ourButton = document.getElementById("textAreaButton");
 ourButton.addEventListener("click", createCard);
+
 function createCard () {
 	var textAreaInput = document.getElementById("ourtextarea").value;
 
@@ -54,6 +55,7 @@ function createCard () {
 	function deleteCard() {
 		this.parentNode.removeChild(createDivCard);
 		// cannot get delete function to work - will figure out later, going down rabbit hole :()
+		// should probably remove function OUTSIDE of function
 	}
 }
 
