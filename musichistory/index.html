@@ -5,34 +5,43 @@
   <meta charset="utf-8">
   <title>Music History</title>
 
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="styles/style.css">
 
 </head>
 
 <body>
 
-	<br>
+<br />
 
-	<nav>
-		<ul>
-		<li>View Music</li>
-		<li>|</li>
-		<li><a href="#">Add Music</a></li>
-		<li>|</li>
-		<li><a href="#">Profile</a></li>
+<div class="container">
+<div class="row justify-content-md-center">
+
+	<nav class="col-md-10" id="navheader">
+		<ul class="list-inline">
+			<li class="list-inline-item">View Music</li>
+			<li class="list-inline-item">|</li>
+			<li class="list-inline-item"><a href="#">Add Music</a></li>
+			<li class="list-inline-item">|</li>
+			<li class="list-inline-item"><a href="#">Profile</a></li>
 		</ul>
 	</nav>
 
-	<br>
+</div>
 
-	<div id="container">
+<br>
 
-		<div id="left-sidebar">
+	<div class="container" id="container">
+	<div class="row justify-content-md-center">
 
-			<h4>Song Length:</h4>
+		<div class="col-md-3" id="left-sidebar">
+
+			<h6>Song Length:</h6>
 			<input type="range" id="song_length_slider">
 
-			<h4>Artist:</h4>
+		<br><br>
+
+			<h6>Artist:</h6>
 			<select id="artist">
 				<option value="Options" selected>Options</option>
 				<option value="Chvrches">Chvrches</option>
@@ -41,7 +50,9 @@
 				<option value="Florence_Machine">Florence & The Machine</option>
 			</select>
 
-			<h4>Album:</h4>
+		<br><br>
+
+			<h6>Album:</h6>
 			<select id="album">
 				<option value="Options" selected>Options</option>
 				<option value="Every_Open_Eye">Every Open Eye</option>
@@ -50,54 +61,56 @@
 				<option value="Ceremonials">Ceremonials</option>
 			</select>
 
+		<br><br>
 
-			<h4>Genre:</h4>
+			<h6>Genre:</h6>
+				<div class="container"><div class="row">
+		   			<div class="col-md-6">
+		   				<label><input type="checkbox"> Rock </label>
+		   				<label><input type="checkbox"> Alt. </label>
+		   				<label><input type="checkbox"> Pop </label>
+		   			</div>
 
-	   		<ul class="checkboxes">
-	   			<li> <input type="checkbox"> Rock </li>
-	   			<li> <input type="checkbox"> Alternative </li>
-	   			<li> <input type="checkbox"> Pop </li>
-	   		</ul>
-
-	   		<ul class="checkboxes">
-	   			<li> <input type="checkbox"> Classical </li>
-	   			<li> <input type="checkbox"> Jazz </li>
-	   			<li> <input type="checkbox"> Hip Hop </li>
-	   		</ul>
+		   			<div class="col-md-6">
+		   				<label><input type="checkbox"> Classical </label>
+		   				<label><input type="checkbox"> Jazz </label>
+		   				<label><input type="checkbox"> Hip Hop </label>
+		   			</div>
+				</div></div>
 
 			<br /></br />
 
-			<div id="filter_button_div">
+			<div class="row justify-content-md-center">
 				<button type="button" id="filter_button" value="Filter">Filter</button>
 			</div>
 
 		</div>
 
-		<div id="right-content">
+		<div class="col-md-7" id="right-content">
 
 			<section id="song1" class="song_list">
 				<h3>Recover</h3>
 
 				Chvrches | Recover EP | Alternative
-			</section>
+			</section><br>
 
 			<section id="song2" class="song_list">
-				<h3>Song Name</h3>
+				<h3>Doomsday Clock</h3>
 
 				Smashing Pumpkins | Zeitgeist | Rock
-			</section>
+			</section><br>
 
 			<section id="song3" class="song_list">
 				<h3>Go Your Own Way</h3>
 
 				Fleetwood Mac | Rumours | Rock
-			</section>
+			</section><br>
 
 			<section id="song4" class="song_list">
 				<h3>Only If for a Night</h3>
 
 				Florence & The Machine | Ceremonials | Rock
-			</section>
+			</section><br>
 
 			<h3>From Music History Assignment (v.2):</h3>
 
