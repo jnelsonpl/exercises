@@ -31,17 +31,37 @@ meatChooser.addEventListener("change", function(event) {
 // Bread
 breadChooser.addEventListener("change", function(event) {
   // Get the value chosen from the DOM
-  selectedTopping = event.target.id; // .id works for some stuff but what is sandwichmaker.js doing?
+  selectedTopping = event.target.id;
   var y = SandwichMaker.addBread(selectedTopping);
   console.log(y);
   finalSandwichPrice += y;
 });
 
+// Cheese
+cheeseChooser.addEventListener("change", function(event) {
+  // Get the value chosen from the DOM
+  selectedTopping = event.target.id;
+  var z = SandwichMaker.addCheese(selectedTopping);
+  console.log(z);
+  finalSandwichPrice += z;
+});
 
 
+// Condiments
+condimentChooser.addEventListener("change", function(event) {
+  // Get the value chosen from the DOM
+  selectedTopping = event.target.id;
+  var a = SandwichMaker.addCondiments(selectedTopping);
+  console.log(a);
+  finalSandwichPrice += a;
+});
 
-
-
-
-
+// Veggies
+veggieChooser.addEventListener("change", function(event) {
+  // Get the value chosen from the DOM
+  selectedTopping = event.target.id;
+  var b = SandwichMaker.addVeggies(selectedTopping);
+  console.log(b);
+  finalSandwichPrice += b;
+});
 
