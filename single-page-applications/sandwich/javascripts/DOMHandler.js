@@ -11,19 +11,17 @@ var cheeseChooser = document.getElementById("cheese");
 var condimentChooser = document.getElementById("condiments");
 var veggieChooser = document.getElementById("veggies");
 
-meatChooser.getElementsByTagName("input");
-
-
 /* 
   A <select> element broadcasts a change event, so you listen for it
   and get the value of the topping from your augmented IIFE
 */
-
-//meatChooser.addEventListener("change", function(event) {
+var meatChooser = document.getElementById("meat");
+meatChooser.addEventListener("change", function(event) {
   // Get the value chosen from the DOM
-  // selectedTopping = event.target.value;
+  selectedTopping = event.target.value; // .id works for some stuff but what is sandwichmaker.js doing?
 
   // Determine the price of the topping chosen
 
   // Add the topping to the SandwichMaker to increase the total price
-// });
+
+});
