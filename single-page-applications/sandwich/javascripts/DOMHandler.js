@@ -25,6 +25,7 @@ meatChooser.addEventListener("change", function(event) {
 
   // Add the topping to the SandwichMaker to increase the total price
   finalSandwichPrice += x;
+  SandwichMaker.addTopping(finalSandwichPrice)
 
 });
 
@@ -46,7 +47,6 @@ cheeseChooser.addEventListener("change", function(event) {
   finalSandwichPrice += z;
 });
 
-
 // Condiments
 condimentChooser.addEventListener("change", function(event) {
   // Get the value chosen from the DOM
@@ -57,11 +57,20 @@ condimentChooser.addEventListener("change", function(event) {
 });
 
 // Veggies
+// THIS CALLS SANDWICH MAKER FUNCTION
 veggieChooser.addEventListener("change", function(event) {
   // Get the value chosen from the DOM
   selectedTopping = event.target.id;
-  var b = SandwichMaker.addVeggies(selectedTopping);
-  console.log(b);
-  finalSandwichPrice += b;
+  selectedTopping = SandwichMaker.addVeggies(selectedTopping);
+  SandwichMaker.addTopping(selectedTopping);
 });
+
+
+// Final Price Output
+var output = document.getElementById("finalprice"); 
+// this doesn't add up as we move along :()
+output.innerHTML = `The Total Cost is ${finalSandwichPrice}.`;
+
+
+
 
