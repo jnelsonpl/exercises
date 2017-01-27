@@ -10,6 +10,13 @@ var breadChooser = document.getElementById("bread");
 var cheeseChooser = document.getElementById("cheese");
 var condimentChooser = document.getElementById("condiments");
 var veggieChooser = document.getElementById("veggies");
+var finalPrice = document.getElementById("finalprice");
+var output = document.getElementById("output");
+
+finalPrice.addEventListener("click", function(event) {
+  var theFinalPrice = SandwichMaker.finalPrice();
+  output.innerHTML = `The Total Cost is $${theFinalPrice}.`;
+});
 
 /* 
   A <select> element broadcasts a change event, so you listen for it
@@ -90,11 +97,6 @@ veggieChooser.addEventListener("change", function(event) {
       SandwichMaker.subtractTopping(selectedTopping);
     }
 });
-
-// Final Price Output
-var output = document.getElementById("finalprice"); 
-// this doesn't add up as we move along :()
-output.innerHTML = `The Total Cost is ${finalSandwichPrice}.`;
 
 
 

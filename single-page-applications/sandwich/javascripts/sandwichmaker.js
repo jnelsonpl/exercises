@@ -12,6 +12,11 @@ var SandwichMaker = (function() {
     subtractTopping: function(tPrice) {
       totalPrice -= tPrice;
       console.log("The total price is now: " + totalPrice);
+    },
+    finalPrice: function(apple) {
+      apple = totalPrice;
+      console.log("The final price is now: " + apple);
+      return apple;
     }
   };
 
