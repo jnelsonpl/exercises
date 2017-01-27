@@ -30,35 +30,39 @@ document.body.appendChild(valueButton);
 var ourButton = document.getElementById("textAreaButton");
 ourButton.addEventListener("click", createCard);
 
+var i = 1;
 function createCard () {
 	var textAreaInput = document.getElementById("ourtextarea").value;
 
-// create card here
-	var createDivCard = document.createElement("DIV");
-	createDivCard.id = "newlycreateddiv";
-	createDivCard.classList.add("create_card"); // add the css
-	document.body.appendChild(createDivCard);
-// end card creation
-// the div's text should be exactly what was in the textarea
-	createDivCard.innerHTML = textAreaInput;
+		// create card here
+			var createDivCard = document.createElement("DIV");
+			createDivCard.id = `newlycreateddiv--${i}`;
+			createDivCard.classList.add("create_card"); // add the css
+			document.body.appendChild(createDivCard);
+		// end card creation
+		// the div's text should be exactly what was in the textarea
+			createDivCard.innerHTML = textAreaInput;
 
-	// Lets create a delete button for each card we create as well
-	// Same steps as creating a button
-	var deleteButton = document.createElement("BUTTON");
-	deleteButton.id = "deletebutton";
-	var deleteButtonText = document.createTextNode("Delete This Card");
-	deleteButton.appendChild(deleteButtonText);
-	document.body.appendChild(deleteButton);
+			for (var j = 0; j < 3; j++) {
+				var br = document.createElement("BR");
+				createDivCard.appendChild(br);
+			}
 
-// NOTE: this works but creates multiple buttons only one of which works
-	var deleteTheCard = document.getElementById("deletebutton").addEventListener("click", deleteCard);
-	function deleteCard() {
-		this.parentNode.removeChild(createDivCard);
-		// cannot get delete function to work - will figure out later, going down rabbit hole :()
-		// should probably remove function OUTSIDE of function
-	}
+			// Lets create a delete button for each card we create as well
+			// Same steps as creating a button
+			// INSERT BUTTON INTO DIV 
+			var deleteButton = document.createElement("BUTTON");
+			deleteButton.id = `deletebutton--${i}`;
+			var deleteButtonText = document.createTextNode("Delete This Card");
+			deleteButton.appendChild(deleteButtonText);
+			createDivCard.appendChild(deleteButton);
+			i++;
+
+			var deleteTheCard = document.getElementById(deleteButton.id);
+			deleteTheCard.addEventListener("click", function() {
+				this.parentNode.parentNode.removeChild(this.parentNode);
+			});
 }
-
 
 
 
