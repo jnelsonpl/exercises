@@ -16,61 +16,85 @@ var veggieChooser = document.getElementById("veggies");
   and get the value of the topping from your augmented IIFE
 */
 meatChooser.addEventListener("change", function(event) {
-  // Get the value chosen from the DOM
-  selectedTopping = event.target.id; // .id works for some stuff but what is sandwichmaker.js doing?
-
-  // Determine the price of the topping chosen
-  var x = SandwichMaker.addMeat(selectedTopping);
-  console.log(x);
-
-  // Add the topping to the SandwichMaker to increase the total price
-  finalSandwichPrice += x;
-  SandwichMaker.addTopping(finalSandwichPrice)
-
+  if (event.target.checked === true) {
+      // Get the value chosen from the DOM
+      selectedTopping = event.target.id;
+      // Determine the price of the topping chosen
+      selectedTopping = SandwichMaker.addMeat(selectedTopping);
+      console.log("The topping price is: " + selectedTopping);
+      SandwichMaker.addTopping(selectedTopping);
+  } else if (event.target.checked === false) {
+      selectedTopping = event.target.id;
+      selectedTopping = SandwichMaker.addMeat(selectedTopping);
+      console.log("The price subtracted is: " + selectedTopping);
+      SandwichMaker.subtractTopping(selectedTopping);
+  }
 });
 
 // Bread
 breadChooser.addEventListener("change", function(event) {
-  // Get the value chosen from the DOM
-  selectedTopping = event.target.id;
-  var y = SandwichMaker.addBread(selectedTopping);
-  console.log(y);
-  finalSandwichPrice += y;
+  if (event.target.checked === true) {
+      selectedTopping = event.target.id;
+      selectedTopping = SandwichMaker.addBread(selectedTopping);
+      console.log("The topping price is: " + selectedTopping);
+      SandwichMaker.addTopping(selectedTopping);
+  } else if (event.target.checked === false) {
+      selectedTopping = event.target.id;
+      selectedTopping = SandwichMaker.addBread(selectedTopping);
+      console.log("The price subtracted is: " + selectedTopping);
+      SandwichMaker.subtractTopping(selectedTopping);
+  }
 });
 
 // Cheese
 cheeseChooser.addEventListener("change", function(event) {
-  // Get the value chosen from the DOM
-  selectedTopping = event.target.id;
-  var z = SandwichMaker.addCheese(selectedTopping);
-  console.log(z);
-  finalSandwichPrice += z;
+  if (event.target.checked === true) {
+    selectedTopping = event.target.id;
+    selectedTopping = SandwichMaker.addCheese(selectedTopping);
+    console.log("The topping price is: " + selectedTopping);
+    SandwichMaker.addTopping(selectedTopping);
+  } else if (event.target.checked === false) {
+      selectedTopping = event.target.id;
+      selectedTopping = SandwichMaker.addCheese(selectedTopping);
+      console.log("The price subtracted is: " + selectedTopping);
+      SandwichMaker.subtractTopping(selectedTopping);
+  }
 });
 
 // Condiments
 condimentChooser.addEventListener("change", function(event) {
-  // Get the value chosen from the DOM
-  selectedTopping = event.target.id;
-  var a = SandwichMaker.addCondiments(selectedTopping);
-  console.log(a);
-  finalSandwichPrice += a;
+    if (event.target.checked === true) {
+      selectedTopping = event.target.id;
+      selectedTopping = SandwichMaker.addCondiments(selectedTopping);
+      console.log("The topping price is: " + selectedTopping);
+      SandwichMaker.addTopping(selectedTopping);
+    } else if (event.target.checked === false) {
+      selectedTopping = event.target.id;
+      selectedTopping = SandwichMaker.addCondiments(selectedTopping);
+      console.log("The price subtracted is: " + selectedTopping);
+      SandwichMaker.subtractTopping(selectedTopping);
+    }
 });
 
 // Veggies
-// THIS CALLS SANDWICH MAKER FUNCTION
 veggieChooser.addEventListener("change", function(event) {
-  // Get the value chosen from the DOM
-  selectedTopping = event.target.id;
-  selectedTopping = SandwichMaker.addVeggies(selectedTopping);
-  SandwichMaker.addTopping(selectedTopping);
+    if (event.target.checked === true) {
+      selectedTopping = event.target.id;
+      selectedTopping = SandwichMaker.addVeggies(selectedTopping);
+      console.log("The topping price is: " + selectedTopping);
+      SandwichMaker.addTopping(selectedTopping);
+    } else if (event.target.checked === false) {
+      selectedTopping = event.target.id;
+      selectedTopping = SandwichMaker.addVeggies(selectedTopping);
+      console.log("The price subtracted is: " + selectedTopping);
+      SandwichMaker.subtractTopping(selectedTopping);
+    }
 });
-
 
 // Final Price Output
 var output = document.getElementById("finalprice"); 
 // this doesn't add up as we move along :()
 output.innerHTML = `The Total Cost is ${finalSandwichPrice}.`;
-
 
 
 
