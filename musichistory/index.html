@@ -19,19 +19,20 @@
 
 	<nav class="col-md-10" id="navheader">
 		<ul class="list-inline">
-			<li class="list-inline-item">View Music</li>
+			<li class="list-inline-item"><a href="#" id="listMusic">View Music</a></li>
 			<li class="list-inline-item">|</li>
-			<li class="list-inline-item"><a href="#">Add Music</a></li>
+			<li class="list-inline-item"><a href="#" id="addMusic">Add Music</a></li>
 			<li class="list-inline-item">|</li>
-			<li class="list-inline-item"><a href="#">Profile</a></li>
+			<li class="list-inline-item"><a href="#" id="profile">Profile</a></li>
 		</ul>
+
 	</nav>
 
 </div>
 
 <br>
 
-	<div class="container" id="container">
+	<div class="container" id="list_music_view">
 	<div class="row justify-content-md-center">
 
 		<div class="col-md-3" id="left-sidebar">
@@ -121,7 +122,37 @@
 
 	</div>
 
+</div></div>
+
+<!--- add music view, hidden by default -->
+	<div class="container hidden" id="add_music_view">
+	<div class="row justify-content-md-center">
+
+		<div class="col-md-10 text-center" id="add_music_view_div">
+
+			Song Name: <br />
+				<input type="text" class="search_music" id="name_of_song_search"> <br />
+			Artist: <br />
+				<input type="text" class="search_music" id="artist_of_song_search"> <br />
+			Album: <br />
+				<input type="text" class="search_music" id="album_of_song_search"> </br />
+
+			<div class="row justify-content-md-center">
+				<button type="button" id="music_search_button">Add</button>
+			</div>
+
+
+		</div>
+
+	</div>
+	</div> 
+
 <script type="text/javascript" src="songs.js"></script>
 
 </body>
 </html>
+
+
+
+
+

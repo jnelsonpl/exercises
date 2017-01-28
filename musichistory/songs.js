@@ -1,3 +1,26 @@
+
+// List Music Link & Div
+const listMusicLink = document.getElementById("listMusic");
+const listMusicView = document.getElementById("list_music_view");
+
+// Add Music Link & Div
+const addMusicLink = document.getElementById("addMusic");
+const addMusicView = document.getElementById("add_music_view");
+
+// View Music Link Show/Hidden
+listMusicLink.addEventListener("click", function (event) {
+	addMusicView.classList.add("hidden");
+	listMusicView.classList.remove("hidden");
+});
+
+// Add Music Link Show/Hidden
+addMusicLink.addEventListener("click", function (event) {
+	addMusicView.classList.remove("hidden");
+	listMusicView.classList.add("hidden");
+});
+
+
+// Original Song Array
 var songs = [];
 
 // Add to an array using .length
@@ -12,15 +35,30 @@ songs.unshift("Video Killed the Radio Star > by The Buggles on the album The Age
 // Add to an array using .push
 songs.push("Blue Monday > by New Order on the album Candyass");
 
+
+var insertSong = document.getElementById("arraySong");
 // Loop over the array and remove any words or characters that obviously don't belong.
-// Students must find and replace the > character in each item with a - character.
-
-
-var insertSong = document.getElementById("arraySong"); // Insert song array into DOM
-
 for (var i = 0; i < songs.length; i++) {
 	var x = songs[i].replace(/>/g, "-");  // Code from StackOverflow, replace > with -
 	var y = x.replace(/\*|!|@|\(|/g, ""); // Replace 'messy' characters with ""
-
 	insertSong.innerHTML += "<br><i>" + y + "</i>"
 }
+
+// Add Songs to Array and display with innerHTML;
+const addButton = document.getElementById("music_search_button");
+addButton.addEventListener("click", function(event) {
+		let nameOfSong = document.getElementById("name_of_song_search").value;
+		let artistOfSong = document.getElementById("artist_of_song_search").value;
+		let albumOfSong = document.getElementById("album_of_song_search").value;
+
+		let completeSongElement = nameOfSong + " - by " + artistOfSong + " on the album " + albumOfSong;
+		songs.push(completeSongElement); // push to array
+		console.log("Song Added");
+
+		insertSong.innerHTML += "<br><i>" + completeSongElement + "</i>"; // display in HTML
+});
+
+
+	
+
+
