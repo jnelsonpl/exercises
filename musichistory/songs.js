@@ -67,8 +67,8 @@ addButton.addEventListener("click", function(event) {
 		let completeSongElement = 
 			`<div>
 			<i>${nameOfSong}</i> - by <b>${artistOfSong}</b> on the album <u>${albumOfSong}</u>.</ul>
-			<button type="button" class="deleteme" id="${nameOfSong}">Delete</button></div>`;
-		insertSong.innerHTML += completeSongElement;		
+			<button type="button" class="deleteme" id="${nameOfSong} - by ${artistOfSong} on the album ${albumOfSong}">Delete</button></div>`;
+		insertSong.innerHTML += completeSongElement;
 
 		let a = `${nameOfSong} - by ${artistOfSong} on the album ${albumOfSong}`;
 		songs.push(a); // push to array
@@ -87,7 +87,7 @@ function loadJSONList (songList) {
 		listOfMusic += `<div>
 						<i>${eachSong.title}</i> - by <b>${eachSong.artist}</b> on the album
 						<u>${eachSong.album}</u>.
-						<button type="button" class="deleteme" id="${eachSong.title}">Delete</button></div>`
+						<button type="button" class="deleteme" id="${eachSong.title} - by ${eachSong.artist} on the album ${eachSong.album}">Delete</button></div>`
 
 		insertSong.innerHTML += listOfMusic;
 
@@ -97,17 +97,26 @@ function loadJSONList (songList) {
 	}
 }
 
+/* does not delete from array */
 
-function identifyButtons(){
-	for (var i = 0; i < songs.length; i++) {
-		document.getElementsByClassName("deleteme")[i].addEventListener("click", erase);
+function identifyButtons() {
+	var x = document.getElementsByClassName("deleteme");
+	for (var i = 0; i < x.length; i++) {
+		x[i].addEventListener("click", erase);
 	}
 }
 
+
 function erase(event) {
 	this.parentNode.parentNode.removeChild(this.parentNode);
-}
+	var songName = event.target.id;
+	for (var i = 0; i < songs.length; i++) {
+		if (songName === songs[i]) {
+			songs.splice(i, 1);
+		}
+	}
 
+}
 
 /* Legacy Code */
 /*
