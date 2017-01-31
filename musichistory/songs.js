@@ -18,6 +18,23 @@ objectRequest.send();
 /*
  * End JSON LOAD
  */
+/* Second JSON Load */
+var secondObjectRequest = new XMLHttpRequest();
+secondObjectRequest.addEventListener("load", secondDataRequestComplete);
+secondObjectRequest.addEventListener("error", secondDataRequestFailed);
+var secondJsonSongList;
+	function secondDataRequestComplete (event) {
+		secondJsonSongList = JSON.parse(event.target.responseText);
+		// loadJSONList(secondJsonSongList); // load the songs from JSON file calls loadJSONList function
+		console.log("Second JSON request complete");
+	}
+
+	function secondDataRequestFailed (event) {
+		console.log("Error occured during JSON transfer");
+	}
+secondObjectRequest.open("GET", "songs2.json");
+secondObjectRequest.send();
+/* End Second JSON load */
 
 /*
  * ARRAY ELEMENTS
@@ -97,6 +114,17 @@ function loadJSONList (songList) {
 	}
 }
 
+/* 
+ * 		Handler for "Load More Music Button"
+ */
+var moreMusicButton = document.getElementById("loadmore");
+moreMusicButton.addEventListener("click", function () {
+	loadJSONList(secondJsonSongList);
+	// console.log("We need to remove this after load");
+	event.target.remove();
+});
+
+
 /* does not delete from array */
 
 function identifyButtons() {
@@ -105,7 +133,9 @@ function identifyButtons() {
 		x[i].addEventListener("click", erase);
 	}
 }
-
+/* 
+ *    *** RESEARCH EVENT.TARGET.ID ***
+ */ 
 
 function erase(event) {
 	this.parentNode.parentNode.removeChild(this.parentNode);
