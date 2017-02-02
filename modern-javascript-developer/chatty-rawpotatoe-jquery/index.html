@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head profile="index.html">
+		<title>Chatty Exercise</title>
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<link rel="icon"
+				type="image/jpg"
+				href="http://images4.fanpop.com/image/photos/18300000/potato-king-potato-king-and-his-minions-potatoes-18373904-225-225.jpg">
+	</head>
+
+	<body id="chattyBody">
+		<nav class="navbar">
+
+			<ul class="fixedNav" id="fixedNav">
+        		<li>Chatty</li>
+				<li>
+					<input type="text" id="inputText" size="50" placeholder="Enter Your Message!">
+				</li>
+				<li>
+				<button id="clear-board-button">Clear The Board</button>
+				</li>
+				<li>
+				<input type="radio" name="users" id="Jordan">Jordan
+				<input type="radio" name="users" id="Jeremy">Jeremy
+				<input type="radio" name="users" id="Adam">Adam
+				<input type="radio" name="users" id="Ruthie">Ruthie
+        </li>
+			</ul>
+		</nav>
+
+
+		<div class="spacer"><br><br><br><hr></div>
+			<ul class="themeCheckbox" id="themeCheckbox">
+				<li>
+					<input type="checkbox" value="dark-theme" id="dark-theme-checkbox"><label>Dark Theme</label>
+				</li>
+				<li>
+					<input type="checkbox" value="large-text" id="large-text-checkbox"><label>Large Text</label>
+				</li>
+			</ul>
+		<div class="wrapper">
+			<div class="realBody" id="real-body">
+				<br>
+				<label for="messageBox">Messages</label><br>
+				<br>
+				<hr>
+				<article id="message-board">
+					<ul id="message-board-list">
+					</ul>
+				</article>
+				<br>
+				
+			</div>
+		</div>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<script type="text/javascript" src="javascript/remove.js"></script>
+		<script type="text/javascript" src="javascript/javascript.js"></script>
+		<script type="text/javascript" src="javascript/message.js"></script>
+
+	</body>
+</html>

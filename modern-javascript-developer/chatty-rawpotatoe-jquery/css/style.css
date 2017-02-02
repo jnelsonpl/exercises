@@ -1,0 +1,169 @@
+#chattyBody {
+	background-image: url(../images/background.jpg)
+}
+
+body {
+  min-width: 950px;
+}
+
+#message-board-list {
+	list-style-type: none;
+  padding: 0;
+  margin: 0;
+  width: 700px;
+}
+
+#message-board-list li {
+  width: 700px;
+  display: block;
+  height: 75px;
+}
+
+#message-board-list p {
+  width: 50%;
+  height: 75px;
+  overflow: scroll;
+  margin: 0;
+  margin-top: 15px;
+  overflow: scroll;
+  text-align: justify;
+  margin-left: 30%;
+}
+
+.delete-me {
+  float: right;
+  margin-top: -50px;
+  margin-right: 10px;
+}
+
+.edit-me {
+  float: right;
+  margin-top: -75px;
+  margin-right: 10px;
+}
+
+h5 {
+  margin: 0;
+  float: left;
+  margin-left: 10px;
+  clear: left;
+}
+
+h6 {
+  margin: 5px 0 10px 10px;
+  float: left;
+}
+
+.themeCheckbox {
+  background-color: rgba(100, 162, 196, 0.63);
+}
+
+#themeCheckbox {
+  text-decoration: none;
+  list-style: none;
+  width: 200px;
+  margin-left: 40px;
+  padding: 5px 5px;
+  border-radius: 20px;
+}
+
+#themeCheckbox li {
+  display: inline-block;
+}
+
+ul#fixednav {
+  min-width: 900px;
+}
+
+#fixednav li {  
+  display: inline-block;
+  align-content: center;
+  height: 79px;
+}
+
+.spacer {
+  width: inherit;
+  height: 95px;
+
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  margin: 0;
+  padding: 2px;
+  display: flex;
+  background-color: navy;
+}
+
+
+
+
+.navbar ul {
+  min-width: 760px;
+  position: fixed;
+  margin: 0;
+  padding: 30px;
+  display: flex;
+  list-style: none;
+  justify-content: space-between;
+  align-content: center;
+  background-color: navy;
+  left: 0;
+  right: 0;
+  top: 0;
+  text-align: center;
+  font-weight: bold;
+}
+
+.fixedNav {
+  background-image: url(../images/lightBackground.jpg);
+}
+
+
+.white-letters {
+  color: white;
+}
+
+.white-letters li {
+  color: white;
+}
+
+.white-theme {
+  background-color: rgba(10, 41, 67, 0.5);
+}
+
+
+.realBody {
+	overflow: hidden;
+	background-color: navy;
+	background-image: url(../images/lightBackground.jpg);
+	min-height: 
+  min-width: 900px;
+  padding: 0; 
+  margin-top: 5%;
+  margin-bottom: 25%;
+  margin-left: 0;
+  margin-right: 0;
+  
+}
+
+.dark-theme {
+  background-image: url(../images/blueBackground.jpg);
+}
+
+
+.wrapper {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    max-height: 100%;
+    width: 75%;
+    margin: 0 auto;
+
+  }
+
+
+.large-font p {
+  font-size: 1.5em;
+}
