@@ -121,7 +121,7 @@ var moreMusicButton = document.getElementById("loadmore");
 moreMusicButton.addEventListener("click", function () {
 	loadJSONList(secondJsonSongList);
 	// console.log("We need to remove this after load");
-	event.target.remove();
+	event.target.remove(); /* this could probably be more elegant... */
 });
 
 
