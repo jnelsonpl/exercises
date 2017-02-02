@@ -1,3 +1,6 @@
+Feb 2 2017: Converted to jQuery
+
+
 # Chatty Group Project
 
 ## Setup
