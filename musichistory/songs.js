@@ -1,40 +1,21 @@
+"use strict";
+
 /*
  * Begin JSON LOAD
  */ 
-var objectRequest = new XMLHttpRequest();
-objectRequest.addEventListener("load", dataRequestComplete);
-objectRequest.addEventListener("error", dataRequestFailed);
-	function dataRequestComplete (event) {
-		var jsonSongList = JSON.parse(event.target.responseText);
-		loadJSONList(jsonSongList); // load the songs from JSON file
-		console.log("JSON request complete");
-	}
+var firstLoad = $.getJSON("songs.json", 
+	  function() {
+	  	console.log( "First JSON Loaded" );
+	  	var jsonSongList = JSON.parse(event.target.responseText);
+	  	loadJSONList(jsonSongList);
+	 });
 
-	function dataRequestFailed (event) {
-		console.log("Error occured during JSON transfer");
-	}
-objectRequest.open("GET", "songs.json");
-objectRequest.send();
-/*
- * End JSON LOAD
- */
-/* Second JSON Load */
-var secondObjectRequest = new XMLHttpRequest();
-secondObjectRequest.addEventListener("load", secondDataRequestComplete);
-secondObjectRequest.addEventListener("error", secondDataRequestFailed);
 var secondJsonSongList;
-	function secondDataRequestComplete (event) {
+var secondLoad = $.getJSON("songs2.json",
+	function() {
+		console.log("Second JSON Loaded");
 		secondJsonSongList = JSON.parse(event.target.responseText);
-		// loadJSONList(secondJsonSongList); // load the songs from JSON file calls loadJSONList function
-		console.log("Second JSON request complete");
-	}
-
-	function secondDataRequestFailed (event) {
-		console.log("Error occured during JSON transfer");
-	}
-secondObjectRequest.open("GET", "songs2.json");
-secondObjectRequest.send();
-/* End Second JSON load */
+	});
 
 /*
  * ARRAY ELEMENTS
@@ -44,17 +25,18 @@ let songs = [];
 /*
  * VARIABLES TO GET DOCUMENT ELEMENTS
  */
- 	// Where Songs are inserted in DOM
-	const insertSong = document.getElementById("arraySong");
+
+	
 	// Add Music button
-	const addButton = document.getElementById("music_search_button");
+	const addButton = $("#music_search_button");
 
 	// List Music Link & Div
-	const listMusicLink = document.getElementById("listMusic");
-	const listMusicView = document.getElementById("list_music_view");
+	const listMusicLink = $("#listMusic")[0];
+	const listMusicView = $("#list_music_view")[0];
+
 	// Add Music Link & Div
-	const addMusicLink = document.getElementById("addMusic");
-	const addMusicView = document.getElementById("add_music_view");
+	const addMusicLink = $("#addMusic")[0];
+	const addMusicView = $("#add_music_view")[0];
 
 /*
  * Event Listeners to Show and Hide Parts of the DOM
@@ -73,19 +55,30 @@ let songs = [];
 	});
 
 
+
+ // Where Songs are inserted in DOM
+ // need help on jquery convert
+//const insertSong = document.getElementById("arraySong");
+var insertSong = $("#arraySong");
+
 /* 
  * Add Music Event Listener, Add Music to DOM
  */
-addButton.addEventListener("click", function(event) {
-		let nameOfSong = document.getElementById("name_of_song_search").value;
-		let artistOfSong = document.getElementById("artist_of_song_search").value;
-		let albumOfSong = document.getElementById("album_of_song_search").value;
+// addButton.addEventListener("click", function(event) {
+addButton.on("click", function (event) {
+
+		let nameOfSong = $("#name_of_song_search").val();
+		let artistOfSong = $("#artist_of_song_search").val();
+		let albumOfSong = $("#album_of_song_search").val();
+
 
 		let completeSongElement = 
 			`<div>
 			<i>${nameOfSong}</i> - by <b>${artistOfSong}</b> on the album <u>${albumOfSong}</u>.</ul>
 			<button type="button" class="deleteme" id="${nameOfSong} - by ${artistOfSong} on the album ${albumOfSong}">Delete</button></div>`;
-		insertSong.innerHTML += completeSongElement;
+		
+		//insertSong.innerHTML += completeSongElement;
+		insertSong.append(completeSongElement);
 
 		let a = `${nameOfSong} - by ${artistOfSong} on the album ${albumOfSong}`;
 		songs.push(a); // push to array
@@ -97,6 +90,7 @@ addButton.addEventListener("click", function(event) {
  * Load Music from JSON
  */
 function loadJSONList (songList) {
+	var song;
 	for (song in songList) {
 		let listOfMusic = "";
 		let eachSong = songList[song];
@@ -106,7 +100,9 @@ function loadJSONList (songList) {
 						<u>${eachSong.album}</u>.
 						<button type="button" class="deleteme" id="${eachSong.title} - by ${eachSong.artist} on the album ${eachSong.album}">Delete</button></div>`
 
-		insertSong.innerHTML += listOfMusic;
+		//insertSong.innerHTML += listOfMusic;
+		
+		insertSong.append(listOfMusic);
 
 		let a = `${eachSong.title} - by ${eachSong.artist} on the album ${eachSong.album}`;
 		songs.push(a);
@@ -117,28 +113,31 @@ function loadJSONList (songList) {
 /* 
  * 		Handler for "Load More Music Button"
  */
-var moreMusicButton = document.getElementById("loadmore");
-moreMusicButton.addEventListener("click", function () {
+// var moreMusicButton = document.getElementById("loadmore");
+let moreMusicButton = $("#loadmore");
+moreMusicButton.on("click", function () {
 	loadJSONList(secondJsonSongList);
 	// console.log("We need to remove this after load");
 	event.target.remove(); /* this could probably be more elegant... */
 });
 
 
-/* does not delete from array */
-
 function identifyButtons() {
-	var x = document.getElementsByClassName("deleteme");
+	//var x = document.getElementsByClassName("deleteme");
+	var x = $(".deleteme");
 	for (var i = 0; i < x.length; i++) {
-		x[i].addEventListener("click", erase);
+		// x[i].addEventListener("click", erase);
+		$(x[i]).on("click", erase);
 	}
 }
+
 /* 
  *    *** RESEARCH EVENT.TARGET.ID ***
  */ 
-
 function erase(event) {
-	this.parentNode.parentNode.removeChild(this.parentNode);
+	//this.parentNode.parentNode.removeChild(this.parentNode);
+	// $(this).remove();
+	this.parentNode.remove();
 	var songName = event.target.id;
 	for (var i = 0; i < songs.length; i++) {
 		if (songName === songs[i]) {
