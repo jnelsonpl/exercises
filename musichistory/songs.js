@@ -25,10 +25,7 @@ let songs = [];
 /*
  * VARIABLES TO GET DOCUMENT ELEMENTS
  */
- 	// Where Songs are inserted in DOM
- 	// need help on jquery convert
-	const insertSong = document.getElementById("arraySong");
-	//var insertSong = $("#arraysong")[0];
+
 	
 	// Add Music button
 	const addButton = $("#music_search_button");
@@ -58,6 +55,12 @@ let songs = [];
 	});
 
 
+
+ // Where Songs are inserted in DOM
+ // need help on jquery convert
+//const insertSong = document.getElementById("arraySong");
+var insertSong = $("#arraySong");
+
 /* 
  * Add Music Event Listener, Add Music to DOM
  */
@@ -74,7 +77,8 @@ addButton.on("click", function (event) {
 			<i>${nameOfSong}</i> - by <b>${artistOfSong}</b> on the album <u>${albumOfSong}</u>.</ul>
 			<button type="button" class="deleteme" id="${nameOfSong} - by ${artistOfSong} on the album ${albumOfSong}">Delete</button></div>`;
 		
-		insertSong.innerHTML += completeSongElement;
+		//insertSong.innerHTML += completeSongElement;
+		insertSong.append(completeSongElement);
 
 		let a = `${nameOfSong} - by ${artistOfSong} on the album ${albumOfSong}`;
 		songs.push(a); // push to array
@@ -96,8 +100,9 @@ function loadJSONList (songList) {
 						<u>${eachSong.album}</u>.
 						<button type="button" class="deleteme" id="${eachSong.title} - by ${eachSong.artist} on the album ${eachSong.album}">Delete</button></div>`
 
-		insertSong.innerHTML += listOfMusic;
-		//$("#arraysong").text(listOfMusic);
+		//insertSong.innerHTML += listOfMusic;
+		
+		insertSong.append(listOfMusic);
 
 		let a = `${eachSong.title} - by ${eachSong.artist} on the album ${eachSong.album}`;
 		songs.push(a);
