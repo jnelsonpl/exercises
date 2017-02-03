@@ -135,7 +135,9 @@ function identifyButtons() {
  *    *** RESEARCH EVENT.TARGET.ID ***
  */ 
 function erase(event) {
-	this.parentNode.parentNode.removeChild(this.parentNode);
+	//this.parentNode.parentNode.removeChild(this.parentNode);
+	// $(this).remove();
+	this.parentNode.remove();
 	var songName = event.target.id;
 	for (var i = 0; i < songs.length; i++) {
 		if (songName === songs[i]) {
