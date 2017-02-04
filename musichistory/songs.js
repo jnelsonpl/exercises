@@ -42,18 +42,15 @@ let songs = [];
  * Event Listeners to Show and Hide Parts of the DOM
  */
 
-	// View Music Link Show/Hidden
-	listMusicLink.addEventListener("click", function (event) {
-		addMusicView.classList.add("hidden");
-		listMusicView.classList.remove("hidden");
+	$(listMusicLink).on("click", function () {
+		$(addMusicView).addClass("hidden");
+		$(listMusicView).removeClass("hidden");
 	});
 
-	// Add Music Link Show/Hidden
-	addMusicLink.addEventListener("click", function (event) {
-		addMusicView.classList.remove("hidden");
-		listMusicView.classList.add("hidden");
+	$(addMusicLink).on("click", function () {
+		$(addMusicView).removeClass("hidden");
+		$(listMusicView).addClass("hidden");
 	});
-
 
 
  // Where Songs are inserted in DOM
@@ -114,11 +111,10 @@ function loadJSONList (songList) {
  * 		Handler for "Load More Music Button"
  */
 // var moreMusicButton = document.getElementById("loadmore");
-let moreMusicButton = $("#loadmore");
-moreMusicButton.on("click", function () {
+$("#loadmore").on("click", function () {
 	loadJSONList(secondJsonSongList);
 	// console.log("We need to remove this after load");
-	event.target.remove(); /* this could probably be more elegant... */
+	event.target.remove();
 });
 
 
@@ -137,7 +133,7 @@ function identifyButtons() {
 function erase(event) {
 	//this.parentNode.parentNode.removeChild(this.parentNode);
 	// $(this).remove();
-	this.parentNode.remove();
+	$this.parentNode.remove();
 	var songName = event.target.id;
 	for (var i = 0; i < songs.length; i++) {
 		if (songName === songs[i]) {
