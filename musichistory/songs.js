@@ -54,27 +54,22 @@ let songs = [];
 
 
  // Where Songs are inserted in DOM
- // need help on jquery convert
-//const insertSong = document.getElementById("arraySong");
-var insertSong = $("#arraySong");
+let insertSong = $("#arraySong");
 
 /* 
  * Add Music Event Listener, Add Music to DOM
  */
-// addButton.addEventListener("click", function(event) {
-addButton.on("click", function (event) {
+addButton.on("click", function () {
 
 		let nameOfSong = $("#name_of_song_search").val();
 		let artistOfSong = $("#artist_of_song_search").val();
 		let albumOfSong = $("#album_of_song_search").val();
 
-
 		let completeSongElement = 
 			`<div>
 			<i>${nameOfSong}</i> - by <b>${artistOfSong}</b> on the album <u>${albumOfSong}</u>.</ul>
-			<button type="button" class="deleteme" id="${nameOfSong} - by ${artistOfSong} on the album ${albumOfSong}">Delete</button></div>`;
+			<input type="button" class="deleteme" id="${nameOfSong} - by ${artistOfSong} on the album ${albumOfSong}" value="Delete"></input></div>`
 		
-		//insertSong.innerHTML += completeSongElement;
 		insertSong.append(completeSongElement);
 
 		let a = `${nameOfSong} - by ${artistOfSong} on the album ${albumOfSong}`;
@@ -95,9 +90,7 @@ function loadJSONList (songList) {
 		listOfMusic += `<div>
 						<i>${eachSong.title}</i> - by <b>${eachSong.artist}</b> on the album
 						<u>${eachSong.album}</u>.
-						<button type="button" class="deleteme" id="${eachSong.title} - by ${eachSong.artist} on the album ${eachSong.album}">Delete</button></div>`
-
-		//insertSong.innerHTML += listOfMusic;
+						<input type="button" class="deleteme" id="${eachSong.title} - by ${eachSong.artist} on the album ${eachSong.album}" value="Delete"></input></div>`
 		
 		insertSong.append(listOfMusic);
 
@@ -113,27 +106,19 @@ function loadJSONList (songList) {
 // var moreMusicButton = document.getElementById("loadmore");
 $("#loadmore").on("click", function () {
 	loadJSONList(secondJsonSongList);
-	// console.log("We need to remove this after load");
-	event.target.remove();
+	$(this).prop("disabled", true).val('Nothing More to Load');
 });
 
 
 function identifyButtons() {
-	//var x = document.getElementsByClassName("deleteme");
 	var x = $(".deleteme");
 	for (var i = 0; i < x.length; i++) {
-		// x[i].addEventListener("click", erase);
 		$(x[i]).on("click", erase);
 	}
 }
 
-/* 
- *    *** RESEARCH EVENT.TARGET.ID ***
- */ 
-function erase(event) {
-	//this.parentNode.parentNode.removeChild(this.parentNode);
-	// $(this).remove();
-	$this.parentNode.remove();
+function erase() {
+	$(this)[0].parentNode.remove();
 	var songName = event.target.id;
 	for (var i = 0; i < songs.length; i++) {
 		if (songName === songs[i]) {
