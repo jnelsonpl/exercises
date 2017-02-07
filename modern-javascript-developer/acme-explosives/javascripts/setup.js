@@ -1,6 +1,6 @@
-var loadedCategories;
-var loadedTypes;
-var loadedProducts;
+let loadedCategories;
+let loadedTypes;
+let loadedProducts;
 
 getCategories().then(
 		function (resolve) {
@@ -31,11 +31,10 @@ getTypes().then(
 getProducts().then(
 	function (resolve) {
 		loadedProducts = resolve;
-		//printProducts(loadedProducts);
 });
 
 function printType (categoryNumber) {
-	console.log("Category ID is " + categoryNumber);
+	// console.log("Category ID is " + categoryNumber);
 
 	var hmm = document.getElementById("products");
 	hmm.innerHTML = "";
@@ -49,8 +48,6 @@ function printType (categoryNumber) {
 
 	var p = document.getElementById("type-dropdown");
 	p.addEventListener("change", function (anIdForProducts) {
-		// what are we trying to do here?
-		// we want an id from each "type" (there are six) so we can pass to a function
 		for (var y in loadedTypes) {
 			if (this.value == loadedTypes[y].name) {
 				// console.log(loadedTypes[y].name + " " + loadedTypes[y].id);
@@ -60,9 +57,6 @@ function printType (categoryNumber) {
 		}
 	});
 }
-// for TYPES
-// type ID in types.json MUST match products.json ID!!!!
-// so id in types.json must equal type in products
 
 function printProducts (eachProduct) {
 	//console.log("I have a Type ID:  " + eachProduct);
@@ -73,7 +67,6 @@ function printProducts (eachProduct) {
 		let aProduct = loadedProducts[i];
 		for (var prop in aProduct) {
 			if (eachProduct == aProduct[prop].type) {
-				//let theFinalProduct = aProduct[prop].name;
 				//console.log(theFinalProduct);
 
 				y.innerHTML += `<div class="col-md-3 usercolumns clearfix bg-info text-white" id="${aProduct[prop].name}">
