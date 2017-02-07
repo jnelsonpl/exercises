@@ -1,15 +1,27 @@
 var loadedCategories;
 var loadedTypes;
 var loadedProducts;
-var whichone;
-
-var typesDiv = document.getElementById("types");
 
 getCategories().then(
 		function (resolve) {
-		loadedCategories = resolve;
-		// we are literally just ignoring this it seems ???
+			loadedCategories = resolve;
+
+			var y = document.getElementById("category-dropdown");
+            for (var x in loadedCategories) {
+                y.innerHTML += `<option id="${loadedCategories[x].name}">${loadedCategories[x].name}</option>`
+            }
+
+            var heythere = document.getElementById("category-dropdown");
+            heythere.addEventListener("change", function (anumber) {
+            	for (var x in loadedCategories) {
+            		if (this.value == loadedCategories[x].name) {
+            			var categoryNumber = loadedCategories[x].id;
+            			printType(categoryNumber);
+            		} 
+            	}
+			});
 });
+
 
 getTypes().then(
 		function (resolve) {
@@ -18,73 +30,58 @@ getTypes().then(
 
 getProducts().then(
 	function (resolve) {
-	loadedProducts = resolve;
-	// printProducts(loadedProducts);
+		loadedProducts = resolve;
+		//printProducts(loadedProducts);
 });
 
-let category_dropdown = document.getElementById("category-dropdown");
-category_dropdown.addEventListener("change", function () {
-	if (category_dropdown.value == 0) {
-		whichone = 0;
-	} else if (category_dropdown.value == 1) {
-		whichone = 1;
+function printType (categoryNumber) {
+	console.log("Category ID is " + categoryNumber);
+
+	var hmm = document.getElementById("products");
+	hmm.innerHTML = "";
+
+	var y = document.getElementById("type-dropdown");
+	y.innerHTML = "";
+	for (var i in loadedTypes) {
+		if (loadedTypes[i].category == categoryNumber)
+			y.innerHTML += `<option id="${loadedTypes[i].id}">${loadedTypes[i].name}</option>`
 	}
-	printType(whichone);
 
-});
-
-// We should probably then list out for each type...
-function printType (whichType) {
-	if (whichone == 0) {
-		for (var x in loadedTypes) {
-			if (loadedTypes[x].category === 0) {
-				var firstType = loadedTypes[x].name;
-				console.log(firstType);
-				/* var namesOfTypes = loadedTypes[x];
-				var listOfTypes = "";
-
-				listOfTypes += `<div id="${namesOfTypes.name}">
-
-								${namesOfTypes.name}</div>
-								`
-				typesDiv.innerHTML += listOfTypes; */
+	var p = document.getElementById("type-dropdown");
+	p.addEventListener("change", function (anIdForProducts) {
+		// what are we trying to do here?
+		// we want an id from each "type" (there are six) so we can pass to a function
+		for (var y in loadedTypes) {
+			if (this.value == loadedTypes[y].name) {
+				// console.log(loadedTypes[y].name + " " + loadedTypes[y].id);
+				var typeId = loadedTypes[y].id;
+				printProducts(typeId);
 			}
 		}
-	} else if (whichone == 1) {
-		for (var p in loadedTypes) {
-			if (loadedTypes[p].category == 1) {
-				var secondType = loadedTypes[p].name;
-				console.log(secondType);
-			}
-		}
-	}
+	});
 }
+// for TYPES
+// type ID in types.json MUST match products.json ID!!!!
+// so id in types.json must equal type in products
 
-/*
-function printCategories (eachCategory) {
-	console.log(whichone);
-	for (var category in eachCategory) {
-			console.log("ID: " + eachCategory[category].id + " Category: " + eachCategory[category].name);
-	}
-} 
-*/
-
-let productsDiv = document.querySelector("#products")
 function printProducts (eachProduct) {
-	for (var productKeys in eachProduct) {
-		let aProduct = eachProduct[productKeys];
-				for (var productInfo in aProduct) {
-					let printToPage = "";
-					let productInfoComplete = aProduct[productInfo];
-					//console.log(productInfoComplete.name + " : " + productInfoComplete.description);
+	//console.log("I have a Type ID:  " + eachProduct);
+	
+	var y = document.getElementById("products");
+	y.innerHTML = "";
+	for (var i in loadedProducts) {
+		let aProduct = loadedProducts[i];
+		for (var prop in aProduct) {
+			if (eachProduct == aProduct[prop].type) {
+				//let theFinalProduct = aProduct[prop].name;
+				//console.log(theFinalProduct);
 
-					printToPage += `<div>
-									${productInfoComplete.name} <br>
-									</div>`
-
-					productsDiv.innerHTML += printToPage;
-				}
+				y.innerHTML += `<div class="col-md-3 usercolumns clearfix bg-info text-white" id="${aProduct[prop].name}">
+								<b>Product:</b> ${aProduct[prop].name} <br>
+								<b>Description:</b> ${aProduct[prop].description}</div>`
+			}
 		}
+	}
 }
 
 

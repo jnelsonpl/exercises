@@ -18,7 +18,7 @@ let getCategories = function () {
                 function (element) {
                     catarray.push(element);
             })
-    		resolve(catarray);
+            resolve(catarray);
     	});
 
     	loader.open("GET", "json/categories.json");
