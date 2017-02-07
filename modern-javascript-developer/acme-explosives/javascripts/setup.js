@@ -18,7 +18,8 @@ getTypes().then(
 
 getProducts().then(
 	function (resolve) {
-		loadedProducts = resolve;
+	loadedProducts = resolve;
+	// printProducts(loadedProducts);
 });
 
 let category_dropdown = document.getElementById("category-dropdown");
@@ -29,6 +30,7 @@ category_dropdown.addEventListener("change", function () {
 		whichone = 1;
 	}
 	printType(whichone);
+
 });
 
 // We should probably then list out for each type...
@@ -36,30 +38,23 @@ function printType (whichType) {
 	if (whichone == 0) {
 		for (var x in loadedTypes) {
 			if (loadedTypes[x].category === 0) {
-				//console.log(loadedTypes[x].name);
-
-				var namesOfTypes = loadedTypes[x];
+				var firstType = loadedTypes[x].name;
+				console.log(firstType);
+				/* var namesOfTypes = loadedTypes[x];
 				var listOfTypes = "";
 
 				listOfTypes += `<div id="${namesOfTypes.name}">
 
 								${namesOfTypes.name}</div>
 								`
-				typesDiv.innerHTML += listOfTypes;
+				typesDiv.innerHTML += listOfTypes; */
 			}
 		}
 	} else if (whichone == 1) {
 		for (var p in loadedTypes) {
 			if (loadedTypes[p].category == 1) {
-				//console.log(loadedTypes[p].name);
-
-				var namesOfTypes = loadedTypes[p];
-				var listOfTypes = "";
-
-				listOfTypes += `<div id="${namesOfTypes.name}">
-								${namesOfTypes.name}</div>
-								`
-				typesDiv.innerHTML += listOfTypes;
+				var secondType = loadedTypes[p].name;
+				console.log(secondType);
 			}
 		}
 	}
@@ -74,13 +69,20 @@ function printCategories (eachCategory) {
 } 
 */
 
-
+let productsDiv = document.querySelector("#products")
 function printProducts (eachProduct) {
 	for (var productKeys in eachProduct) {
 		let aProduct = eachProduct[productKeys];
 				for (var productInfo in aProduct) {
+					let printToPage = "";
 					let productInfoComplete = aProduct[productInfo];
-					console.log(productInfoComplete.name + " : " + productInfoComplete.description);
+					//console.log(productInfoComplete.name + " : " + productInfoComplete.description);
+
+					printToPage += `<div>
+									${productInfoComplete.name} <br>
+									</div>`
+
+					productsDiv.innerHTML += printToPage;
 				}
 		}
 }
