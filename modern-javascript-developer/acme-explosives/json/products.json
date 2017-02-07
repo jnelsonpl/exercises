@@ -1,0 +1,113 @@
+{
+    "products": [{
+        "fairy_sparklers" : {
+            "id": 0,
+            "type": 0,
+            "name": "Fairy Sparklers",
+            "description": "Multi-colored sparklers that are safe for any age."
+        },
+        "awesome_parklers" : {
+            "id": 1,
+            "type": 0,
+            "name": "Awesome Sparklers",
+            "description": "Just really awesome Sparklers!"
+        },
+        "even_better_sparklers" : {
+            "id": 2,
+            "type": 0,
+            "name": "Even Better Sparklers",
+            "description": "Even better than Awesome Sparklers"
+        },
+        "america_the_beautiful" : {
+            "id": 3,
+            "type": 1,
+            "name": "America The Beautiful Fireworks",
+            "description": "Fireworks for the July 4th Celebration"
+        },
+        "red_white_blue" : {
+            "id": 4,
+            "type": 1,
+            "name": "Red White Blue Sparklers",
+            "description": "Red White Blue Sparklers."
+        },
+        "cat_sparklers" : {
+            "id": 5,
+            "type": 1,
+            "name": "Cat Sparklers",
+            "description": "Sparklers for your Cat"
+        },
+        "potatoe_salad_sparklers" : {
+            "id": 6,
+            "type": 2,
+            "name": "Potatoe Salad Sparklers",
+            "description": "Sparklers made out of Potatoe Salad"
+        },
+        "hamburger_sparklers" : {
+            "id": 7,
+            "type": 2,
+            "name": "Hamburger Sparklers",
+            "description": "Running out of things to say."
+        },
+        "something_sparklers" : {
+            "id": 8,
+            "type": 2,
+            "name": "Sparklers for Something",
+            "description": "Sparklers for just something!"
+        },
+        "construction_sparklers" : {
+            "id": 9,
+            "type": 3,
+            "name": "Construction Sparklers",
+            "description": "Sparklers for Construction Site"
+        },
+        "hardhat_sparklers" : {
+            "id": 10,
+            "type": 3,
+            "name": "Hard Hat Sparklers",
+            "description": "Only come in White."
+        },
+        "american_steel" : {
+            "id": 11,
+            "type": 3,
+            "name": "American Steel",
+            "description": "Sparklers celebrating American steel"
+        },
+        "really_big_sparklers" : {
+            "id": 12,
+            "type": 4,
+            "name": "really big sparklers",
+            "description": "big sized sparklers"
+        },
+        "really_bigger_sparklers" : {
+            "id": 13,
+            "type": 4,
+            "name": "really bigger sparklers",
+            "description": "Even bigger sized sparklers than the big size"
+        },
+        "just_ok_sparklers" : {
+            "id": 14,
+            "type": 4,
+            "name": "Just Ok Sparklers",
+            "description": "Nothing else to say"
+        },
+        "military_sparklers" : {
+            "id": 15,
+            "type": 5,
+            "name": "Military Sparklers",
+            "description": "Sparklers for Military Use"
+        },
+        "airforce_sparklers" : {
+            "id": 16,
+            "type": 5,
+            "name": "Airforce Sparklers",
+            "description": "To be used by AirForce."
+        },
+        "navy_sparklers" : {
+            "id": 17,
+            "type": 5,
+            "name": "Navy Sparklers",
+            "description": "Sparklers for the navy to use!"
+        }
+    }]
+}
+

@@ -1,0 +1,40 @@
+{
+    "types": [
+        {
+            "id": 0,
+            "category": 0,
+            "name": "New Years Eve",
+            "description": "Fireworks intended for use during Holiday celebrations"
+        },
+        {
+            "id": 1,
+            "category": 0,
+            "name": "Forth of July",
+            "description": "Fireworks intended for 4th of July"
+        },
+        {
+            "id": 2,
+            "category": 0,
+            "name": "Memorial Day",
+            "description": "Fireworks for Memorial Day"
+        },
+        {
+            "id": 3,
+            "category": 1,
+            "name": "Residential",
+            "description": "Fireworks for Residential Areas"
+        },
+        {
+            "id": 4,
+            "category": 1,
+            "name": "Business",
+            "description": "Fireworks for Business Events"
+        },
+        {
+            "id": 5,
+            "category": 1,
+            "name": "Military",
+            "description": "Fireworks for Military Events"
+        }
+    ]
+}

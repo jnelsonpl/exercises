@@ -1,0 +1,13 @@
+{
+    "categories": 
+    [
+        {
+            "id": 0,
+            "name": "Fireworks for Holidays"
+        },
+        {
+            "id": 1,
+            "name": "Fireworks for non-Holidays"
+        }
+    ]
+}
