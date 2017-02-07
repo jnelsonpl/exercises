@@ -3,7 +3,7 @@
 <head>
 	<title>ACME Co. Exercise</title>
 
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link rel="stylesheet" href="dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -12,22 +12,22 @@
 
 	<div class="row" id="categories">
 
-	<br><br>
+	<br>
 
 	<h1>ACME Sparklers & Stuff for Sale</h1>
 	<p>I took the long way to finish this exercise... Way more complex than needed to be!<br>
-	Small Bug: After choosing category, must select something other than pre-filled value to load objects!
+	Small Bug: After choosing category, you must select something other than pre-filled type to load objects!
 	</p>
 
 	<br>
 
-	Products:
+	<b>Products:</b><br>
 		<select id="category-dropdown">
-			<option value="" disabled selected>Choose Category</option>
+			<option value="selected">Choose Category</option>
 		</select>
 
 		<select id="type-dropdown">
-			<option value="" disabled selected>Choose Type</option>
+			<option value="selected">Choose Type</option>
 		</select>
 	</div>
 
@@ -40,7 +40,6 @@
 <script src="javascripts/types.js"></script>
 <script src="javascripts/products.js"></script>
 <script src="javascripts/setup.js"></script>
-
 
 </body>
 </html>

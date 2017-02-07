@@ -17,7 +17,7 @@ let getCategories = function () {
             var parseData = data.categories.forEach(
                 function (element) {
                     catarray.push(element);
-            })
+            });
             resolve(catarray);
     	});
 
@@ -25,4 +25,4 @@ let getCategories = function () {
     	loader.send();
 
 	});
-}
+};

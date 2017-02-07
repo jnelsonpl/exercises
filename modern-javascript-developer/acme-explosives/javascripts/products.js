@@ -17,7 +17,7 @@ let getProducts = function () {
             var parseData = data.products.forEach(
                 function (element) {
                     productsarray.push(element);
-            })
+            });
             resolve(productsarray);
         });
 
@@ -25,4 +25,4 @@ let getProducts = function () {
         loader.send();
 
     });
-}
+};

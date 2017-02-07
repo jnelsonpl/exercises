@@ -1,3 +1,5 @@
+"use strict";
+
 let loadedCategories;
 let loadedTypes;
 let loadedProducts;
@@ -8,7 +10,7 @@ getCategories().then(
 
 			var y = document.getElementById("category-dropdown");
             for (var x in loadedCategories) {
-                y.innerHTML += `<option id="${loadedCategories[x].name}">${loadedCategories[x].name}</option>`
+                y.innerHTML += `<option id="${loadedCategories[x].name}">${loadedCategories[x].name}</option>`;
             }
 
             var heythere = document.getElementById("category-dropdown");
@@ -43,7 +45,7 @@ function printType (categoryNumber) {
 	y.innerHTML = "";
 	for (var i in loadedTypes) {
 		if (loadedTypes[i].category == categoryNumber)
-			y.innerHTML += `<option id="${loadedTypes[i].id}">${loadedTypes[i].name}</option>`
+			y.innerHTML += `<option id="${loadedTypes[i].id}">${loadedTypes[i].name}</option>`;
 	}
 
 	var p = document.getElementById("type-dropdown");
@@ -70,8 +72,8 @@ function printProducts (eachProduct) {
 				//console.log(theFinalProduct);
 
 				y.innerHTML += `<div class="col-md-3 usercolumns clearfix bg-info text-white" id="${aProduct[prop].name}">
-								<b>Product:</b> ${aProduct[prop].name} <br>
-								<b>Description:</b> ${aProduct[prop].description}</div>`
+								<b>Product:</b><br> ${aProduct[prop].name} <br><br>
+								<b>Description:</b><br> ${aProduct[prop].description}</div>`;
 			}
 		}
 	}

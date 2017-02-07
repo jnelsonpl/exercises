@@ -17,7 +17,7 @@ let getTypes = function () {
             var parseData = data.types.forEach(
                 function (element) {
                     typesarray.push(element);
-            })
+            });
             resolve(typesarray);
         });
 
@@ -25,8 +25,7 @@ let getTypes = function () {
         loader.send();
 
     });
-}
-
+};
 
 
 
