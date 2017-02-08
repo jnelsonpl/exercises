@@ -2,16 +2,19 @@
     {
       "title": "Space Oddity",
       "artist": "David Bowie",
-      "album": "David Bowie"
+      "album": "David Bowie",
+      "genre": "Rock"
     },
     {
       "title": "Smells Like Teen Spirit",
       "artist": "Nirvana",
-      "album": "Nevermind"
+      "album": "Nevermind",
+      "genre": "Rock"
     },
     {
       "title": "Imagine",
       "artist": "John Lennon",
-      "album": "Imagine"
+      "album": "Imagine",
+      "genre": "Rock"
     }
   ]
