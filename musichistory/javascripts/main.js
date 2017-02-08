@@ -1,41 +1,35 @@
 'use strict';
-
-/*
- * DEFINE GLOBAL VARIABLES
- */
-
-
+const addObject = require('./addObject.js');
+const jsonloader = require('./loadJSON.js');
+const createObjects = require('./createObjects.js');
 
 /* 
  *		Calling the 'loadJson' function to create our initial output
  *		and then adding an event-listener to load a second json file.	
  */
-
-
-loadJson('json/songs.json', 'json', createArray, createOutput);
+jsonloader.loadJson('json/songs.json', 'json', createObjects.createArray, createObjects.createOutput);
 $('#loadmore').on('click', function() {
-		loadJson('json/songs2.json', 'json', createArray, createOutput);
+		jsonloader.loadJson('json/songs2.json', 'json', createObjects.createArray, createObjects.createOutput);
 		$(this).prop('disabled', true).val('Nothing More to Load');
 });
 
 /* 
- *		Have an event listener when the 'add' button is called
- *		on the 'Add Music' part of the dom.
+ *	Have an event listener when the 'add' button is called
+ *	on the 'Add Music' part of the dom.
  */
 $("#music_search_button").click(function () {
 	let songtitle = $("#name_of_song_search").val();
 	let artist = $("#artist_of_song_search").val();
 	let album = $("#album_of_song_search").val();
 
-	addMusicToDom(songtitle, artist, album);
-	addMusicToArray(songtitle, artist, album);
+	addObject.addMusicToDom(songtitle, artist, album);
+	addObject.addMusicToArray(songtitle, artist, album);
 });
 
 
-
 /*
- *		Declaring variables and then hiding/showing the 'add music' part
- *		of the dom.
+ *	Declaring variables and then hiding/showing the 'add music' part
+ *	of the dom.
  */
 const listMusicLink = $("#listMusic")[0];
 const listMusicView = $("#list_music_view")[0];
@@ -53,10 +47,25 @@ $(addMusicLink).click(function () {
 });
 
 
+/*
+ * Couldn't get 'songs' array to be accessed globally. Songs is created with json loads.
+ * the array 'addedSongs' is an array which contains all songs added manually.
+ */
 
-
-
-
+/* 
+	let loadedOutput = $("#arraySong");
+	var getLoadedOutput = function () {
+		return loadedOutput;
+	}
+	module.exports = {getLoadedOutput} 
+*/
+/*
+let songs = [];
+var songTesting = function() {
+	return songTest;
+}
+module.exports = {songTesting} 
+*/
 
 
 /* Legacy Code */

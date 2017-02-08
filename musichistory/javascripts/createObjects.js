@@ -3,14 +3,14 @@
 /*
  * Module to manipulate json output to dom
  */
-let songs = [];
+
 let loadedOutput = $("#arraySong");
+var songs = [];
 
 function createArray (obj) {
 	for (var key in obj) {
 		let eachItem = obj[key];
 		let joinArray = `${eachItem.title} - by ${eachItem.artist} on the album ${eachItem.album}`;
-		// songs array defined in main file
 		songs.push(joinArray);
 	}
 }
@@ -46,7 +46,7 @@ function deleteElement () {
 
 
 
-// module.exports = {createArray, createOutput, deleteElement};
+module.exports = {createArray, createOutput, deleteElement};
 
 
 
