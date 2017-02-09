@@ -10,7 +10,7 @@ function loadJson (path, datatype, func1, func2) {
 		dataType: datatype
 	})
 	.then(console.log('attempting file load ' + path))
-	.fail(function(){console.log('failure to load file')})
+	.fail(function(){console.log('failure to load file');})
 	.done(console.log('successful file load ' + path), func1, func2);
 }
 

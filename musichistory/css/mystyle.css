@@ -27,13 +27,13 @@ h3 {
 	display: block;
 }
 
-#artist {
-	width: 70%;
+#artist_dropdown {
+	width: 90%;
 	border: 2px solid black;
 }
 
-#album {
-	width: 70%;
+#album_dropdown {
+	width: 90%;
 	border: 2px solid black;
 }
 

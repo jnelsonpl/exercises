@@ -6,7 +6,7 @@
   <title>Music History</title>
 
   <link rel="stylesheet" type="text/css" href="dist/css/bootstrap.min.css">
-  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="stylesheet" type="text/css" href="css/mystyle.css">
 
 </head>
 
@@ -43,23 +43,13 @@
 		<br><br>
 
 			<h6>Artist:</h6>
-			<select id="artist">
-				<!-- <option value="Options" selected>Options</option>
-				<option value="Chvrches">Chvrches</option>
-				<option value="Smashing_Pumpkins">Smashing Pumpkins</option>
-				<option value="Fleetwood_Mac">Fleetwood Mac</option>
-				<option value="Florence_Machine">Florence & The Machine</option> -->
+			<select id="artist_dropdown">
 			</select>
 
 		<br><br>
 
 			<h6>Album:</h6>
-			<select id="album">
-				<!-- <option value="Options" selected>Options</option>
-				<option value="Every_Open_Eye">Every Open Eye</option>
-				<option value="Zeitgeist">Zeitgeist</option>
-				<option value="Rumours">Rumours</option>
-				<option value="Ceremonials">Ceremonials</option> -->
+			<select id="album_dropdown">
 			</select>
 
 		<br><br>
@@ -102,7 +92,7 @@
 
 </div></div>
 
-<!--- add music view, hidden by default -->
+	<!--- add music view, hidden by default -->
 	<div class="container hidden" id="add_music_view">
 	<div class="row justify-content-md-center">
 
@@ -127,6 +117,7 @@
 
 <script type="text/javascript" src="dist/jquery.min.js"></script>
 <script type="text/javascript" src="dist/app.js"></script>
+
 <!-- 
 <script type="text/javascript" src="javascripts/loadJSON.js"></script>
 <script type="text/javascript" src="javascripts/createObjects.js"></script>
