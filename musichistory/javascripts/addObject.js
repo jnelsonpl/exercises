@@ -15,7 +15,9 @@ function addMusicToDom (songtitle, artist, album) {
 
 		let toWebpage = '';
 		toWebpage = `<div>
-						<i>${songtitle}</i> - by <b>${artist}</b> on the album <u>${album}</u>.
+						<li class='artist-li' id='${songtitle}'><i>${songtitle}</i> - by </li>
+						<li class='artist-li' id='${artist}'><b>${artist}</b> on the album</li>
+						<li class='artist-li' id='${album}'><u>${album}</u>.</li>
 						<input type='button' class='deletebutton' id='${songtitle} - by ${artist} on the album ${album}' 
 						value='Delete'></input></div>`;
 		Songs.outputToDiv.append(toWebpage);
@@ -25,11 +27,11 @@ function addMusicToDom (songtitle, artist, album) {
 		 * No Fancy Delete/Filter Methods for this yet
 		 */
 		let dropdownArtistOutput = '';
-			dropdownArtistOutput += `<option id="${artist} ${album}">${artist}</option>`;
+			dropdownArtistOutput += `<option class="${artist}">${artist}</option>`;
 		Songs.outputToArtistDropDown.append(dropdownArtistOutput);
 
 		let dropdownAlbumOutput = '';
-			dropdownAlbumOutput += `<option id="${artist} ${album}">${album}</option>`;
+			dropdownAlbumOutput += `<option class="${album}">${album}</option>`;
 		Songs.outputToAlbumDropDown.append(dropdownAlbumOutput);
 
 		Songs.deleteObject();

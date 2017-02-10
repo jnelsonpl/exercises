@@ -21,10 +21,12 @@ function createOutput (obj) {
 		songs.push(joinArray);
 
 		let toWebpage = '';
-		toWebpage += `<div>
-						<i>${eachItem.title}</i> - by <b>${eachItem.artist}</b> on the album <u>${eachItem.album}</u>.
+		toWebpage += `<ul>
+						<li class='artist-li' id='${eachItem.title}'><i>${eachItem.title}</i> - by </li>
+						<li class='artist-li' id='${eachItem.artist}'><b>${eachItem.artist}</b> on the album</li>
+						<li class='artist-li' id='${eachItem.album}'><u>${eachItem.album}</u>.</li>
 						<input type='button' class='deletebutton' id='${eachItem.title} - by ${eachItem.artist} on the album ${eachItem.album}' 
-						value='Delete'></input></div>`;
+						value='Delete'></input></ul>`;
 		outputToDiv.append(toWebpage);
 
 		/*
@@ -32,14 +34,13 @@ function createOutput (obj) {
 		 * No Fancy Delete/Filter Methods for this yet
 		 */
 		let dropdownArtistOutput = '';
-			dropdownArtistOutput += `<option id='${eachItem.artist} ${eachItem.album}'>${eachItem.artist}</option>`;
+			dropdownArtistOutput += `<option class='artistSelect'>${eachItem.artist}</option>`;
 		outputToArtistDropDown.append(dropdownArtistOutput);
 
 		let dropdownAlbumOutput = '';
-			dropdownAlbumOutput += `<option id='${eachItem.artist} ${eachItem.album}'>${eachItem.album}</option>`;
+			dropdownAlbumOutput += `<option class='albumSelect'>${eachItem.album}</option>`;
 		outputToAlbumDropDown.append(dropdownAlbumOutput);
 	}
-	console.log(songs);
 	deleteObject();
 }
 
@@ -49,7 +50,7 @@ function deleteObject () {
 		let deleteItem = $(this)[0].id;
 
 		for (var i = 0; i < songs.length; i++) {
-			if (deleteItem == songs[i]) {
+			if (deleteItem === songs[i]) {
 				songs.splice(i, 1);
 			}
 		}
@@ -66,14 +67,13 @@ function deleteObject () {
 	});
 }
 
-
 module.exports = {	
 					outputToDiv, 
 					outputToArtistDropDown,
 					outputToAlbumDropDown,
 					songs,
 					createOutput, 
-					deleteObject
+					deleteObject,
 				};
 
 

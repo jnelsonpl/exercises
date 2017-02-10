@@ -81,7 +81,15 @@ h3 {
 	float: right;
 }
 
+.artist-li {
+	display: inline-block;
+	list-style: none;
+}
 
+ul {
+	margin: 0px;
+	padding: 0px;
+}
 
 
 

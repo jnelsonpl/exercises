@@ -16,7 +16,9 @@ function addMusicToDom (songtitle, artist, album) {
 
 		let toWebpage = '';
 		toWebpage = `<div>
-						<i>${songtitle}</i> - by <b>${artist}</b> on the album <u>${album}</u>.
+						<li class='artist-li' id='${songtitle}'><i>${songtitle}</i> - by </li>
+						<li class='artist-li' id='${artist}'><b>${artist}</b> on the album</li>
+						<li class='artist-li' id='${album}'><u>${album}</u>.</li>
 						<input type='button' class='deletebutton' id='${songtitle} - by ${artist} on the album ${album}' 
 						value='Delete'></input></div>`;
 		Songs.outputToDiv.append(toWebpage);
@@ -26,11 +28,11 @@ function addMusicToDom (songtitle, artist, album) {
 		 * No Fancy Delete/Filter Methods for this yet
 		 */
 		let dropdownArtistOutput = '';
-			dropdownArtistOutput += `<option id="${artist} ${album}">${artist}</option>`;
+			dropdownArtistOutput += `<option class="${artist}">${artist}</option>`;
 		Songs.outputToArtistDropDown.append(dropdownArtistOutput);
 
 		let dropdownAlbumOutput = '';
-			dropdownAlbumOutput += `<option id="${artist} ${album}">${album}</option>`;
+			dropdownAlbumOutput += `<option class="${album}">${album}</option>`;
 		Songs.outputToAlbumDropDown.append(dropdownAlbumOutput);
 
 		Songs.deleteObject();
@@ -80,10 +82,12 @@ function createOutput (obj) {
 		songs.push(joinArray);
 
 		let toWebpage = '';
-		toWebpage += `<div>
-						<i>${eachItem.title}</i> - by <b>${eachItem.artist}</b> on the album <u>${eachItem.album}</u>.
+		toWebpage += `<ul>
+						<li class='artist-li' id='${eachItem.title}'><i>${eachItem.title}</i> - by </li>
+						<li class='artist-li' id='${eachItem.artist}'><b>${eachItem.artist}</b> on the album</li>
+						<li class='artist-li' id='${eachItem.album}'><u>${eachItem.album}</u>.</li>
 						<input type='button' class='deletebutton' id='${eachItem.title} - by ${eachItem.artist} on the album ${eachItem.album}' 
-						value='Delete'></input></div>`;
+						value='Delete'></input></ul>`;
 		outputToDiv.append(toWebpage);
 
 		/*
@@ -91,14 +95,13 @@ function createOutput (obj) {
 		 * No Fancy Delete/Filter Methods for this yet
 		 */
 		let dropdownArtistOutput = '';
-			dropdownArtistOutput += `<option id='${eachItem.artist} ${eachItem.album}'>${eachItem.artist}</option>`;
+			dropdownArtistOutput += `<option class='artistSelect'>${eachItem.artist}</option>`;
 		outputToArtistDropDown.append(dropdownArtistOutput);
 
 		let dropdownAlbumOutput = '';
-			dropdownAlbumOutput += `<option id='${eachItem.artist} ${eachItem.album}'>${eachItem.album}</option>`;
+			dropdownAlbumOutput += `<option class='albumSelect'>${eachItem.album}</option>`;
 		outputToAlbumDropDown.append(dropdownAlbumOutput);
 	}
-	console.log(songs);
 	deleteObject();
 }
 
@@ -108,7 +111,7 @@ function deleteObject () {
 		let deleteItem = $(this)[0].id;
 
 		for (var i = 0; i < songs.length; i++) {
-			if (deleteItem == songs[i]) {
+			if (deleteItem === songs[i]) {
 				songs.splice(i, 1);
 			}
 		}
@@ -125,14 +128,13 @@ function deleteObject () {
 	});
 }
 
-
 module.exports = {	
 					outputToDiv, 
 					outputToArtistDropDown,
 					outputToAlbumDropDown,
 					songs,
 					createOutput, 
-					deleteObject
+					deleteObject,
 				};
 
 
@@ -144,11 +146,44 @@ module.exports = {
 /* 
  * Create Filter Ability
  */
-function initialFilterFileLoad (obj) {
-	console.log('hi');
-}
 
-module.exports = initialFilterFileLoad;
+
+function useFilter () {
+
+	var artistLi = $('.artist-li');
+	var artistSelected = $('#artist_dropdown').val();
+
+	for (var i = 0 ; i < artistLi.length; i++) {
+		if (artistSelected == artistLi[i].id) {
+			console.log(artistLi[i].id);
+			$(artistLi[i]).addClass('hidden');
+		}
+
+		
+		/* } else if (artistSelected !== artistLi[i].id) {
+			$('.artistLi').hide();
+		} */
+
+			
+
+		// (THIS) === THE DROP DOWN MENU
+		// hides the element selected
+		// $(artistLi[i]).parent().hide();
+		//artistLi[i].parentElement.classList.add('hidden');
+
+
+
+		}
+
+	}
+
+
+
+$('#artist_dropdown').change(useFilter);
+
+module.exports = {useFilter};
+
+
 
 
 },{}],4:[function(require,module,exports){
@@ -193,6 +228,8 @@ $('#loadmore').click(function() {
 		jsonloader.loadJson('json/songs2.json', 'json', createObjects.createOutput);
 		$(this).prop('disabled', true).val('Nothing More to Load');
 });
+
+filter.useFilter();
 
 /* 
  *	Have an event listener when the 'add' button is called

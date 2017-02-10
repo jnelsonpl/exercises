@@ -17,6 +17,8 @@ $('#loadmore').click(function() {
 		$(this).prop('disabled', true).val('Nothing More to Load');
 });
 
+filter.useFilter();
+
 /* 
  *	Have an event listener when the 'add' button is called
  *	on the 'Add Music' part of the dom.
