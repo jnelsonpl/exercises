@@ -38,8 +38,6 @@ function populatePage (person) {
 	$('#people-cards').append(createDiv);
 
 }
-
-//populatePage();
 },{"../templates/people.hbs":24,"./loadfile.js":1,"./name.js":3,"hbsfy/runtime":23}],3:[function(require,module,exports){
 'use strict';
 

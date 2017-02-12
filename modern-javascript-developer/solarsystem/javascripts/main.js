@@ -19,5 +19,3 @@ function populatePage (person) {
 	$('#people-cards').append(createDiv);
 
 }
-
-//populatePage();
