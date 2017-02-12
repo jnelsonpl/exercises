@@ -15,9 +15,9 @@ function addMusicToDom (songtitle, artist, album) {
 
 		let toWebpage = '';
 		toWebpage = `<div>
-						<li class='artist-li' id='${songtitle}'><i>${songtitle}</i> - by </li>
+						<li class='song-li' id='${songtitle}'><i>${songtitle}</i> - by </li>
 						<li class='artist-li' id='${artist}'><b>${artist}</b> on the album</li>
-						<li class='artist-li' id='${album}'><u>${album}</u>.</li>
+						<li class='album-li' id='${album}'><u>${album}</u>.</li>
 						<input type='button' class='deletebutton' id='${songtitle} - by ${artist} on the album ${album}' 
 						value='Delete'></input></div>`;
 		Songs.outputToDiv.append(toWebpage);

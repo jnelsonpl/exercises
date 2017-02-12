@@ -22,9 +22,9 @@ function createOutput (obj) {
 
 		let toWebpage = '';
 		toWebpage += `<ul>
-						<li class='artist-li' id='${eachItem.title}'><i>${eachItem.title}</i> - by </li>
+						<li class='song-li' id='${eachItem.title}'><i>${eachItem.title}</i> - by </li>
 						<li class='artist-li' id='${eachItem.artist}'><b>${eachItem.artist}</b> on the album</li>
-						<li class='artist-li' id='${eachItem.album}'><u>${eachItem.album}</u>.</li>
+						<li class='album-li' id='${eachItem.album}'><u>${eachItem.album}</u>.</li>
 						<input type='button' class='deletebutton' id='${eachItem.title} - by ${eachItem.artist} on the album ${eachItem.album}' 
 						value='Delete'></input></ul>`;
 		outputToDiv.append(toWebpage);
@@ -56,13 +56,6 @@ function deleteObject () {
 		}
 		$(this).parent().remove();
 
-		/* For filtering, we may need to split up artist/album/song
-		 * perhaps give a counter variable each time an array is created
-		 * For artists with multiple songs:
-		 * 	a. check the songs they have
-		 * 	b. check which album are associated with song
-		 * 	c. if an artist no longer has any songs, he has no album
-		 */
 		console.log(songs);
 	});
 }
@@ -75,6 +68,3 @@ module.exports = {
 					createOutput, 
 					deleteObject,
 				};
-
-
-

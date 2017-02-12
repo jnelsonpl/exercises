@@ -16,9 +16,9 @@ function addMusicToDom (songtitle, artist, album) {
 
 		let toWebpage = '';
 		toWebpage = `<div>
-						<li class='artist-li' id='${songtitle}'><i>${songtitle}</i> - by </li>
+						<li class='song-li' id='${songtitle}'><i>${songtitle}</i> - by </li>
 						<li class='artist-li' id='${artist}'><b>${artist}</b> on the album</li>
-						<li class='artist-li' id='${album}'><u>${album}</u>.</li>
+						<li class='album-li' id='${album}'><u>${album}</u>.</li>
 						<input type='button' class='deletebutton' id='${songtitle} - by ${artist} on the album ${album}' 
 						value='Delete'></input></div>`;
 		Songs.outputToDiv.append(toWebpage);
@@ -83,9 +83,9 @@ function createOutput (obj) {
 
 		let toWebpage = '';
 		toWebpage += `<ul>
-						<li class='artist-li' id='${eachItem.title}'><i>${eachItem.title}</i> - by </li>
+						<li class='song-li' id='${eachItem.title}'><i>${eachItem.title}</i> - by </li>
 						<li class='artist-li' id='${eachItem.artist}'><b>${eachItem.artist}</b> on the album</li>
-						<li class='artist-li' id='${eachItem.album}'><u>${eachItem.album}</u>.</li>
+						<li class='album-li' id='${eachItem.album}'><u>${eachItem.album}</u>.</li>
 						<input type='button' class='deletebutton' id='${eachItem.title} - by ${eachItem.artist} on the album ${eachItem.album}' 
 						value='Delete'></input></ul>`;
 		outputToDiv.append(toWebpage);
@@ -117,13 +117,6 @@ function deleteObject () {
 		}
 		$(this).parent().remove();
 
-		/* For filtering, we may need to split up artist/album/song
-		 * perhaps give a counter variable each time an array is created
-		 * For artists with multiple songs:
-		 * 	a. check the songs they have
-		 * 	b. check which album are associated with song
-		 * 	c. if an artist no longer has any songs, he has no album
-		 */
 		console.log(songs);
 	});
 }
@@ -137,9 +130,6 @@ module.exports = {
 					deleteObject,
 				};
 
-
-
-
 },{}],3:[function(require,module,exports){
 'use strict';
 
@@ -150,17 +140,27 @@ module.exports = {
 
 function useFilter () {
 
-
+	let selectedArtist = $('#artist_dropdown option:selected').text();
+	let selectedAlbum = $('#album_dropdown option:selected').text();
+	$('.artist-li').parent().hide();
+		// credit to blaise for this logic... 
+		if (selectedArtist === '') { 
+			$('.album-li:contains(' +selectedAlbum+ ') ').parent().show();
+		} else  if (selectedAlbum === '') {
+			$('.artist-li:contains(' +selectedArtist+ ') ').parent().show();
+		}
+		else {
+			$('.album-li:contains(' +selectedAlbum+ ') ').parent().show();
+			$('.artist-li:contains(' +selectedArtist+ ') ').parent().show();
+		}
 }
 
 
-
 $('#artist_dropdown').change(useFilter);
+$('#album_dropdown').change(useFilter);
+$('#filter_button').click(useFilter);
 
 module.exports = {useFilter};
-
-
-
 
 },{}],4:[function(require,module,exports){
 'use strict';
@@ -218,39 +218,18 @@ $('#music_search_button').click(addObject.callAddMusic);
  *	Declaring variables and then hiding/showing the 'add music' part
  *	of the dom.
  */
-const listMusicLink = $("#listMusic")[0];
-const listMusicView = $("#list_music_view")[0];
-const addMusicLink = $("#addMusic")[0];
-const addMusicView = $("#add_music_view")[0];
+const listMusicLink = $('#listMusic')[0];
+const listMusicView = $('#list_music_view')[0];
+const addMusicLink = $('#addMusic')[0];
+const addMusicView = $('#add_music_view')[0];
 
 $(listMusicLink).click(function () {
-	$(addMusicView).addClass("hidden");
-	$(listMusicView).removeClass("hidden");
+	$(addMusicView).addClass('hidden');
+	$(listMusicView).removeClass('hidden');
 });
 
 $(addMusicLink).click(function () {
-	$(addMusicView).removeClass("hidden");
-	$(listMusicView).addClass("hidden");
+	$(addMusicView).removeClass('hidden');
+	$(listMusicView).addClass('hidden');
 });
-
-
-/* Legacy Code */
-/*
-songs[songs.length] = "Legs > by Z*ZTop on the album Eliminator";
-songs[songs.length] = "The Logical Song > by Supertr@amp on the album Breakfast in America";
-songs[songs.length] = "Another Brick in the Wall > by Pink Floyd on the album The Wall";
-songs[songs.length] = "Welco(me to the Jungle > by Guns & Roses on the album Appetite for Destruction";
-songs[songs.length] = "Ironi!c > by Alanis Moris*ette on the album Jagged Little Pill";
-
-// Add to an array using .unshift
-songs.unshift("Video Killed the Radio Star > by The Buggles on the album The Age of Plastic");
-// Add to an array using .push
-songs.push("Blue Monday > by New Order on the album Candyass");
-*/
-// Loop over the array and remove any words or characters that obviously don't belong.
-/* for (var i = 0; i < songs.length; i++) {
-	var x = songs[i].replace(/>/g, "-");  // Code from StackOverflow, replace > with -
-	var y = x.replace(/\*|!|@|\(|/g, ""); // Replace 'messy' characters with ""
-	insertSong.innerHTML += "<br><i>" + y + "</i>"
-} */
 },{"./addObject.js":1,"./createObjects.js":2,"./filter.js":3,"./loadJSON.js":4}]},{},[5]);
