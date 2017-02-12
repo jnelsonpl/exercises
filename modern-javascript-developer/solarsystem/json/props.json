@@ -1,0 +1,18 @@
+{
+	"person" : [
+		{
+			"name" : "Jordan",
+			"height" : "5 feet 9 inches",
+			"weight" : "200lb",
+			"yearborn" : "1985",
+			"description" : "He is great"
+		},
+		{
+			"name" : "Aldona",
+			"height" : "5 feet 6 inches",
+			"weight" : "Classified",
+			"yearborn" : "1985",
+			"description" : "She is great"
+		}
+	]
+}
