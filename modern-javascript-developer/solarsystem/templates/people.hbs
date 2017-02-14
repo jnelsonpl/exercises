@@ -1,0 +1,14 @@
+
+
+{{#each person}}
+
+	<section id='card--{{@index}}' class='card-wrapper'>
+
+	<h5>#{{increment @index}} Person</h5>
+	<h5>Name: {{name}} Age: {{yearborn}}</h5>
+	<h5>Height: {{height}} Weight: {{weight}}</h5>
+	<h5>Information:</h5>
+	<h5>{{description}}</h5>
+	</section>
+
+{{/each}}
