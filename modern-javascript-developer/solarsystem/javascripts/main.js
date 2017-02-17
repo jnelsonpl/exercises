@@ -2,14 +2,11 @@
 
 let Handlebars = require('hbsfy/runtime'),
 	peopleTemplate = require('../templates/people.hbs'),
-	loadFile = require('./loadfile.js'),
-	personName = require('./name.js');
+	loadFile = require('./loadfile.js');
 
 Handlebars.registerHelper('increment', (value) => parseInt(value) + 1);
 
-
-loadFile.loadFile('json/props.json', 'json', personName.outputTo, populatePage);
-
+loadFile.loadFile('json/props.json', 'json', populatePage);
 
 function populatePage (person) {
 

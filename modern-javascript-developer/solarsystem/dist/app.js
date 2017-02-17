@@ -21,14 +21,11 @@ module.exports = {loadFile};
 
 let Handlebars = require('hbsfy/runtime'),
 	peopleTemplate = require('../templates/people.hbs'),
-	loadFile = require('./loadfile.js'),
-	personName = require('./name.js');
+	loadFile = require('./loadfile.js');
 
 Handlebars.registerHelper('increment', (value) => parseInt(value) + 1);
 
-
-loadFile.loadFile('json/props.json', 'json', personName.outputTo, populatePage);
-
+loadFile.loadFile('json/props.json', 'json', populatePage);
 
 function populatePage (person) {
 
@@ -38,21 +35,7 @@ function populatePage (person) {
 	$('#people-cards').append(createDiv);
 
 }
-},{"../templates/people.hbs":24,"./loadfile.js":1,"./name.js":3,"hbsfy/runtime":23}],3:[function(require,module,exports){
-'use strict';
-
-
-function outputTo (name) {
-	for (var key in name) {
-		let person_name = name[key];
-		for (var x in person_name) {
-			console.log(person_name[x].name);
-		}
-	}
-}
-
-module.exports = {outputTo};
-},{}],4:[function(require,module,exports){
+},{"../templates/people.hbs":23,"./loadfile.js":1,"hbsfy/runtime":22}],3:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -120,7 +103,7 @@ exports['default'] = inst;
 module.exports = exports['default'];
 
 
-},{"./handlebars/base":5,"./handlebars/exception":8,"./handlebars/no-conflict":18,"./handlebars/runtime":19,"./handlebars/safe-string":20,"./handlebars/utils":21}],5:[function(require,module,exports){
+},{"./handlebars/base":4,"./handlebars/exception":7,"./handlebars/no-conflict":17,"./handlebars/runtime":18,"./handlebars/safe-string":19,"./handlebars/utils":20}],4:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -226,7 +209,7 @@ exports.createFrame = _utils.createFrame;
 exports.logger = _logger2['default'];
 
 
-},{"./decorators":6,"./exception":8,"./helpers":9,"./logger":17,"./utils":21}],6:[function(require,module,exports){
+},{"./decorators":5,"./exception":7,"./helpers":8,"./logger":16,"./utils":20}],5:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -244,7 +227,7 @@ function registerDefaultDecorators(instance) {
 }
 
 
-},{"./decorators/inline":7}],7:[function(require,module,exports){
+},{"./decorators/inline":6}],6:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -275,7 +258,7 @@ exports['default'] = function (instance) {
 module.exports = exports['default'];
 
 
-},{"../utils":21}],8:[function(require,module,exports){
+},{"../utils":20}],7:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -328,7 +311,7 @@ exports['default'] = Exception;
 module.exports = exports['default'];
 
 
-},{}],9:[function(require,module,exports){
+},{}],8:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -376,7 +359,7 @@ function registerDefaultHelpers(instance) {
 }
 
 
-},{"./helpers/block-helper-missing":10,"./helpers/each":11,"./helpers/helper-missing":12,"./helpers/if":13,"./helpers/log":14,"./helpers/lookup":15,"./helpers/with":16}],10:[function(require,module,exports){
+},{"./helpers/block-helper-missing":9,"./helpers/each":10,"./helpers/helper-missing":11,"./helpers/if":12,"./helpers/log":13,"./helpers/lookup":14,"./helpers/with":15}],9:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -417,7 +400,7 @@ exports['default'] = function (instance) {
 module.exports = exports['default'];
 
 
-},{"../utils":21}],11:[function(require,module,exports){
+},{"../utils":20}],10:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -513,7 +496,7 @@ exports['default'] = function (instance) {
 module.exports = exports['default'];
 
 
-},{"../exception":8,"../utils":21}],12:[function(require,module,exports){
+},{"../exception":7,"../utils":20}],11:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -540,7 +523,7 @@ exports['default'] = function (instance) {
 module.exports = exports['default'];
 
 
-},{"../exception":8}],13:[function(require,module,exports){
+},{"../exception":7}],12:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -571,7 +554,7 @@ exports['default'] = function (instance) {
 module.exports = exports['default'];
 
 
-},{"../utils":21}],14:[function(require,module,exports){
+},{"../utils":20}],13:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -599,7 +582,7 @@ exports['default'] = function (instance) {
 module.exports = exports['default'];
 
 
-},{}],15:[function(require,module,exports){
+},{}],14:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -613,7 +596,7 @@ exports['default'] = function (instance) {
 module.exports = exports['default'];
 
 
-},{}],16:[function(require,module,exports){
+},{}],15:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -648,7 +631,7 @@ exports['default'] = function (instance) {
 module.exports = exports['default'];
 
 
-},{"../utils":21}],17:[function(require,module,exports){
+},{"../utils":20}],16:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -697,7 +680,7 @@ exports['default'] = logger;
 module.exports = exports['default'];
 
 
-},{"./utils":21}],18:[function(require,module,exports){
+},{"./utils":20}],17:[function(require,module,exports){
 (function (global){
 /* global window */
 'use strict';
@@ -721,7 +704,7 @@ module.exports = exports['default'];
 
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],19:[function(require,module,exports){
+},{}],18:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -1020,7 +1003,7 @@ function executeDecorators(fn, prog, container, depths, data, blockParams) {
 }
 
 
-},{"./base":5,"./exception":8,"./utils":21}],20:[function(require,module,exports){
+},{"./base":4,"./exception":7,"./utils":20}],19:[function(require,module,exports){
 // Build out our basic SafeString type
 'use strict';
 
@@ -1037,7 +1020,7 @@ exports['default'] = SafeString;
 module.exports = exports['default'];
 
 
-},{}],21:[function(require,module,exports){
+},{}],20:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -1163,15 +1146,15 @@ function appendContextPath(contextPath, id) {
 }
 
 
-},{}],22:[function(require,module,exports){
+},{}],21:[function(require,module,exports){
 // Create a simple path alias to allow browserify to resolve
 // the runtime on a supported path.
 module.exports = require('./dist/cjs/handlebars.runtime')['default'];
 
-},{"./dist/cjs/handlebars.runtime":4}],23:[function(require,module,exports){
+},{"./dist/cjs/handlebars.runtime":3}],22:[function(require,module,exports){
 module.exports = require("handlebars/runtime")["default"];
 
-},{"handlebars/runtime":22}],24:[function(require,module,exports){
+},{"handlebars/runtime":21}],23:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"1":function(container,depth0,helpers,partials,data) {
@@ -1179,9 +1162,9 @@ module.exports = HandlebarsCompiler.template({"1":function(container,depth0,help
 
   return "\n	<section id='card--"
     + alias4(((helper = (helper = helpers.index || (data && data.index)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"index","hash":{},"data":data}) : helper)))
-    + "' class='card-wrapper'>\n\n	<h5>#"
+    + "' class='card-wrapper'>\n\n	<h4>#"
     + alias4((helpers.increment || (depth0 && depth0.increment) || alias2).call(alias1,(data && data.index),{"name":"increment","hash":{},"data":data}))
-    + " Person</h5>\n	<h5>Name: "
+    + " Person</h4>\n	<h5>Name: "
     + alias4(((helper = (helper = helpers.name || (depth0 != null ? depth0.name : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"name","hash":{},"data":data}) : helper)))
     + " Age: "
     + alias4(((helper = (helper = helpers.yearborn || (depth0 != null ? depth0.yearborn : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"yearborn","hash":{},"data":data}) : helper)))
@@ -1199,4 +1182,4 @@ module.exports = HandlebarsCompiler.template({"1":function(container,depth0,help
     + ((stack1 = helpers.each.call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.person : depth0),{"name":"each","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "");
 },"useData":true});
 
-},{"hbsfy/runtime":23}]},{},[2]);
+},{"hbsfy/runtime":22}]},{},[2]);
