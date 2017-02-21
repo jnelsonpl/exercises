@@ -44,3 +44,6 @@ $(addMusicLink).click(function () {
 	$(addMusicView).removeClass('hidden');
 	$(listMusicView).addClass('hidden');
 });
+
+
+
