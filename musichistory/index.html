@@ -23,7 +23,8 @@
 			<li class="list-inline-item">|</li>
 			<li class="list-inline-item"><a href="#" id="addMusic">Add Music</a></li>
 			<li class="list-inline-item">|</li>
-			<li class="list-inline-item"><a href="#" id="profile">Profile</a></li>
+			<li class="list-inline-item"><a href="#" id="login-btn">Login</a></li>
+			<li class="list-inline-item"><a href="#" id="logout-btn">Logout</a></li>
 		</ul>
 
 	</nav>
@@ -56,7 +57,7 @@
 
 		<br><br>
 
-		<!--	<h6>Genre:</h6>
+		<!-- <h6>Genre:</h6>
 				<div class="container"><div class="row">
 		   			<div class="col-md-6">
 		   				<label><input type="checkbox"> Rock </label>
@@ -69,9 +70,9 @@
 		   				<label><input type="checkbox"> Jazz </label>
 		   				<label><input type="checkbox"> Hip Hop </label>
 		   			</div>
-				</div></div> -->
+				</div></div>
 
-			<br /></br />
+			<br /></br /> -->
 
 			<div class="row justify-content-md-center">
 				<button type="button" id="filter_button" value="Filter">Filter</button>
@@ -81,12 +82,12 @@
 
 		<div class="col-md-7" id="right-content">
 
-			<section id="arraySong" class="song_list">
+			<section id="songList" class="song_list">
 			</section>
 
 			<br />
 
-			<input type="button" value="Load More Music" id="loadmore"></input>
+			<!-- <input type="button" value="Load More Music" id="loadmore"></input> -->
 
 		</div>
 
@@ -101,31 +102,36 @@
 		<div class="col-md-10 text-center" id="add_music_view_div">
 
 			Song Name: <br />
-				<input type="text" class="search_music" id="name_of_song_search"> <br />
+				<input type="text" class="search_music" id="name_of_song"> <br />
 			Artist: <br />
-				<input type="text" class="search_music" id="artist_of_song_search"> <br />
+				<input type="text" class="search_music" id="artist_of_song"> <br />
 			Album: <br />
-				<input type="text" class="search_music" id="album_of_song_search"> </br />
+				<input type="text" class="search_music" id="album_of_song"> </br />
+			Genre: <br />
+				<select class="search_music" id="genre_dropdown">
+					<option value="Choose Genre">Choose Album</option>
+					<option value="Rock">Rock</option>
+					<option value="Alternative">Alternative</option>
+					<option value="Pop">Pop</option>
+					<option value="Classical">Classical</option>
+					<option value="Jazz">Jazz</option>
+				</select>
 
 			<div class="row justify-content-md-center">
 				<button type="button" id="music_search_button">Add</button>
 			</div>
-
-
 		</div>
 
 	</div>
-	</div> 
+	</div>
+
+	<!--- page hidden before user login -->
+
+
 
 <script type="text/javascript" src="dist/jquery.min.js"></script>
 <script type="text/javascript" src="dist/app.js"></script>
 
-<!-- 
-<script type="text/javascript" src="javascripts/loadJSON.js"></script>
-<script type="text/javascript" src="javascripts/createObjects.js"></script>
-<script type="text/javascript" src="javascripts/addObject.js"></script>
-<script type="text/javascript" src="javascripts/main.js"></script>
--->
 </body>
 </html>
 
