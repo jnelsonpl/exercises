@@ -6,7 +6,6 @@
 
 
 function useFilter () {
-
 	let selectedArtist = $('#artist_dropdown option:selected').text();
 	let selectedAlbum = $('#album_dropdown option:selected').text();
 	$('.artist-li').parent().hide();
@@ -17,8 +16,10 @@ function useFilter () {
 			$('.artist-li:contains(' +selectedArtist+ ') ').parent().show();
 		}
 		else {
-			$('.album-li:contains(' +selectedAlbum+ ') ').parent().show();
-			$('.artist-li:contains(' +selectedArtist+ ') ').parent().show();
+		//	$('.album-li:contains(' +selectedAlbum+ ') ').parent().show();
+		//	$('.artist-li:contains(' +selectedArtist+ ') ').parent().show();
+		$('.album-li').parent().show();
+		$('.artist-li').parent().show();
 		}
 }
 

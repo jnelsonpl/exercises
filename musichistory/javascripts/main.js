@@ -1,49 +1,90 @@
 'use strict';
 
-const addObject = require('./addObject.js');
-const jsonloader = require('./loadJSON.js');
-const createObjects = require('./createObjects.js');
-const filter = require('./filter.js');
+let firebase = 	require('./firebase/firebaseConfig.js'),
+	user = 		require("./firebase/user.js"),
 
-/* 
- *	Calling the 'loadJson' function to create our initial output
- *	and then adding an event-listener to load a second json file.	
- */
-jsonloader.loadJson('json/songs.json', 'json', 
-	createObjects.createOutput, filter.initialFilterFileLoad);
+	db = 		require("./db-interaction.js"),
+	addSong = 	require('./addSong.js'),
+	createSongList = require('./createSongList.js'),
+	filter = require('./filter.js');
 
-$('#loadmore').click(function() {
-		jsonloader.loadJson('json/songs2.json', 'json', createObjects.createOutput);
-		$(this).prop('disabled', true).val('Nothing More to Load');
+$(document).ready(function () {
+   	$('#logout-btn').hide();
+  	$('#login-btn').show();
+
+
+
 });
 
-filter.useFilter();
 
-/* 
- *	Have an event listener when the 'add' button is called
- *	on the 'Add Music' part of the dom.
- */
-$('#music_search_button').click(addObject.callAddMusic);
+
+
+/* use Rest API */
+function loadSongsToDom () {
+	let currentUser = user.getUser();
+
+	db.getSongList(currentUser).then(function (userSongList) {
+		console.log('func. loadSongsToDom received from func. getSongList: ', userSongList);
+
+		var idArray = Object.keys (userSongList);
+		idArray.forEach (function (key)
+		{
+			userSongList[key].firebasekey = key;
+		});
+		
+		createSongList.createSongList (userSongList);
+	});
+}
 
 
 /*
- *	Declaring variables and then hiding/showing the 'add music' part
- *	of the dom.
+ * Login calls the functions we need to get going
  */
-const listMusicLink = $('#listMusic')[0];
-const listMusicView = $('#list_music_view')[0];
-const addMusicLink = $('#addMusic')[0];
-const addMusicView = $('#add_music_view')[0];
+$('#login-btn').click (function () {
 
-$(listMusicLink).click(function () {
-	$(addMusicView).addClass('hidden');
-	$(listMusicView).removeClass('hidden');
+	event.preventDefault();
+
+	user.logInGoogle().then( function(result) { 
+  		user.setUser(result.user.uid);
+  	});
+
+	$('#logout-btn').show();
+  	$('#login-btn').hide();
+
+	loadSongsToDom();
+	filter.useFilter();
+
+	/*
+	 *	Declaring variables and then hiding/showing the 'add music' part
+	 *	of the dom.
+	 */
+	const listMusicLink = $('#listMusic')[0];
+	const listMusicView = $('#list_music_view')[0];
+	const addMusicLink = $('#addMusic')[0];
+	const addMusicView = $('#add_music_view')[0];
+
+	$(listMusicLink).click(function () {
+		$(addMusicView).addClass('hidden');
+		$(listMusicView).removeClass('hidden');
+	});
+
+	$(addMusicLink).click(function () {
+		$(addMusicView).removeClass('hidden');
+		$(listMusicView).addClass('hidden');
+	});
+
+	$('#music_search_button').click(addSong.userAddSong);
+
 });
 
-$(addMusicLink).click(function () {
-	$(addMusicView).removeClass('hidden');
-	$(listMusicView).addClass('hidden');
+$('#logout-btn').click(function () {
+
+	event.preventDefault();
+
+	$(".song_list").empty();
+
+	user.logOut();
+	location.reload();
+
 });
-
-
 

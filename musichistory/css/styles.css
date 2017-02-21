@@ -22,11 +22,8 @@ h3 {
 .checkboxes li {
   display: block; }
 
+#album_dropdown,
 #artist_dropdown {
-  width: 90%;
-  border: 2px solid black; }
-
-#album_dropdown {
   width: 90%;
   border: 2px solid black; }
 
@@ -65,20 +62,13 @@ h3 {
 #loadmore {
   float: right; }
 
+.song-li,
+.album-li,
 .artist-li {
   display: inline-block;
   list-style: none; }
 
-.album-li {
-  display: inline-block;
-  list-style: none; }
-
-.song-li {
-  display: inline-block;
-  list-style: none; }
-
-ul {
-  margin: 0px;
-  padding: 0px; }
+.song_div {
+  padding: 5px; }
 
 /*# sourceMappingURL=styles.css.map */
