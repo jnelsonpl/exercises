@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+	<title>Mushroom Mania</title>
+
+</head>
+
+<body ng-app='Mushroom'>
+
+	<div id='content' ng-controller='loadJsonCtrl'>
+
+		<br />
+
+		Search Description: <br />
+		<textarea ng-model='searchText'></textarea>
+
+		<br /> <br />
+
+		<input type='radio' value='false' ng-model='edible'>Poisonous
+
+		<br />
+				
+		<input type='radio' value='true' ng-model='edible'>Non-Poisonous
+
+		<br /> <br />
+
+		<!-- output is here! -->
+		<div ng-view></div>
+
+	</div>
+
+
+<script src="https://www.gstatic.com/firebasejs/3.6.9/firebase.js"></script>
+
+<script type="text/javascript" src="lib/node_modules/angular/angular.min.js"></script>
+<script type="text/javascript" src="lib/node_modules/angular-route/angular-route.min.js"></script>
+
+<script src='app/app.js' type='text/javascript'></script>
+<script src='app/controllers/loadJsonCtrl.js' type='text/javascript'></script>
+
+</body>
+</html>
