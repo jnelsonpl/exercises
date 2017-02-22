@@ -1,0 +1,7 @@
+<div ng-repeat='mushroom in mushrooms | filter: {description: searchText, edible: edible} '>
+
+	<b>name:</b> {{ mushroom.name }} <br />
+	<b>edible:</b> {{ mushroom.edible }} <br />
+	<b>description:</b> {{ mushroom.description }} <br /><br />
+
+</div>
