@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Route Routing Exercise</title>
+</head>
+<body ng-app="RouteRouting">
+
+	<div ng-controller="hwy65Ctrl">
+
+		<a href="#!/hwy65">Highway 65 Information</a>
+		<a href="#!/hwy96">Highway 96 Information</a>
+
+	</div>
+
+	<br /><br />
+
+	<div ng-view>
+	<!-- controller output here -->
+	</div>
+
+
+
+<script type="text/javascript" src="lib/node_modules/angular/angular.min.js"></script>
+<script type="text/javascript" src="lib/node_modules/angular-route/angular-route.min.js"></script>
+
+<script type="text/javascript" src="app/app.js"></script>
+<script type="text/javascript" src="app/controllers/hwy65Ctrl.js"></script>
+<script type="text/javascript" src="app/controllers/hwy96Ctrl.js"></script>
+
+</body>
+</html>
