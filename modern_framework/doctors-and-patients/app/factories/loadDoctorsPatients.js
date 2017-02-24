@@ -7,7 +7,7 @@ app.factory('loadDoctorsPatients', function ($q, $http, dataMassage) {
 			$http.get('./doctors-patients.json')
 			.then (function (dataReceived) {
 				// writing this function isn't needed...i don't think....
-				// probably could have grabbed from array much easier
+				// should have just split array into two
 				var massaged = dataMassage.massageTheData(dataReceived);
 				resolve (massaged);
 			}).catch((error) => {

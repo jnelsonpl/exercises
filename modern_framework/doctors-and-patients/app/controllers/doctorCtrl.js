@@ -2,26 +2,15 @@
 
 app.controller('doctorCtrl', function ($scope, $routeParams, $location, loadDoctorsPatients) {
 
-	loadDoctorsPatients.loadDoctorsPatients().then(function (dataRecieved){
-		$scope.doctors = dataRecieved[0];
-		$scope.patients = dataRecieved[1];
+	loadDoctorsPatients.loadDoctorsPatients().then(function (dataReceived){
+		$scope.doctors = dataReceived[0];
+		$scope.patients = dataReceived[1];
 	});
 
-	console.log($scope);
+	$scope.something = $routeParams;
+	console.log('RouteParameter', $routeParams);
 	console.log('Current location: ' + $location.path());
-	console.log($routeParams);
-	$scope.itemId = $routeParams;
 
-/*	$scope.docToPatient = function(itemId){
-		var arrayLength = 
-
-	}); 
-*/
-
-
+	
 
 });
-
-
-// dataRecieved[0][x].key === dataRecieved[1][x].doctor_id;
-// 

@@ -1,9 +1,8 @@
-<div ng-repeat='patient in patients' ng-attr-id="{{ 'drpat-' + patient.doctor }}">
+<div ng-repeat="patient in patients | filter: {doctor: something.itemId}" >
+
+	<b>{{ patient.doctor }}'s patient's</b>: <br />
 
 	<b>first name:</b> {{ patient.first_name }} {{ patient.last_name }} <br />
-	<b>ailment:</b> {{ patient.ailment }} <br />
-	<b>doctor:</b> {{ patient.doctor }}
-
-	<br /><br />
+	<b>ailment:</b> {{ patient.ailment }} <br /><br />
 
 </div>

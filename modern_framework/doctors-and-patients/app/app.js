@@ -13,6 +13,11 @@ app.config(function ($routeProvider){
 	when('/patients-list/:itemId', {
 		templateUrl: './partials/patients-list.html',
 		controller: 'doctorCtrl'
-	}); 
+	});
+	/* .
+	when('/patients-list/:itemId', {
+	templateUrl: './partials/patient.html',
+		controller: 'doctorCtrl'
+	}); */
 
 });
