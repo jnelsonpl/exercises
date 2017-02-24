@@ -1,0 +1,9 @@
+<div ng-repeat='doctor in doctors'>
+
+	<b>Doctor:</b> {{ doctor.first_name }} {{ doctor.last_name }} <br />
+	<b>Speciality:</b> {{ doctor.speciality }} <br />
+	<a ng-href="#!/patients-list/{{ 'drpat-' + doctor.key }}">See {{ doctor.first_name }}'s patients</a>
+	<br /><br />
+
+</div>
+

@@ -1,0 +1,51 @@
+{
+    "doctors": [
+        {
+            "defee": {
+                "first_name": "Jeremy",
+                "last_name": "Defee",
+                "speciality": "CRNA"
+            }
+        },
+        {
+        "grimes": {
+            "first_name": "Jenny",
+            "last_name": "Grimes",
+            "speciality": "Burn"
+            }
+        },
+        {
+            "cox": {
+                "first_name": "Kendra",
+                "last_name": "Cox",
+                "speciality": "Physical Therapy"
+            }
+        }
+    ],
+    "patients": [
+        {
+            "nelson": {
+                "first_name": "Jordan",
+                "last_name": "Nelson",
+                "ailment": "cataracts",
+                "doctor_id": "defee"
+            }
+        },
+        {
+            "krawczyk": {
+                "first_name": "Aldona",
+                "last_name": "Krawczyk",
+                "ailment": "Arthritis",
+                "doctor_id": "grimes"
+            }
+        },
+        {
+            "peterson": {
+                "first_name": "Kristen",
+                "last_name": "Peterson",
+                "ailment": "Everything",
+                "doctor_id": "cox"
+            }
+        }
+    ]
+}
