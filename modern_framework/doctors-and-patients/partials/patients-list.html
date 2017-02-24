@@ -1,10 +1,10 @@
 <!-- i am not big on styling... lets get the code working! -->
 
+<b>Doctor's Patient List:</b> <br /><br />
+
 <div ng-repeat="patient in patients | filter: {doctor: aDoctor.doctorId}" >
 
-	<b>{{ patient.doctor }}'s patient's</b>: <br />
-
-	<b>first name:</b> {{ patient.first_name }} {{ patient.last_name }} <br />
+	<b>name:</b> {{ patient.first_name }} {{ patient.last_name }} <br />
 	<b>ailment:</b> {{ patient.ailment }} <br /><br />
 
 </div>
