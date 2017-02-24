@@ -7,10 +7,8 @@ app.controller('doctorCtrl', function ($scope, $routeParams, $location, loadDoct
 		$scope.patients = dataReceived[1];
 	});
 
-	$scope.something = $routeParams;
-	console.log('RouteParameter', $routeParams);
+	/* routeParams MUST be set to $scope.x, cannot be passed directly into template */
+	$scope.aDoctor = $routeParams;
 	console.log('Current location: ' + $location.path());
-
-	
 
 });

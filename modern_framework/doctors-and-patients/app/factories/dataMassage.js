@@ -33,7 +33,6 @@ app.factory('dataMassage', function () {
 
 		 /* Patient Array */
 		for (var i in patientList) {
-
 			let patientObj = patientList[i];
 			let getProp  = Object.keys(patientObj);
 			
@@ -43,7 +42,6 @@ app.factory('dataMassage', function () {
 				ailment: patientObj[getProp].ailment,
 				doctor: patientObj[getProp].doctor_id
 			};
-		
 			patientArray.push(aPatientObject);
 		 }
 
@@ -51,11 +49,8 @@ app.factory('dataMassage', function () {
 			doctorArray, 
 			patientArray
 			];
-
 	});
-
 	return {massageTheData};
-
 });
 
 
