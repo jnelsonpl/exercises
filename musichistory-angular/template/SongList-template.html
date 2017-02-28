@@ -1,0 +1,11 @@
+<section ng-repeat="Song in MusicList">
+
+				
+			<i>{{Song.title}}</i> - by  <b class='artist-li'>{{Song.artist}}</b> on the album <u class='album-li'>{{Song.album}}</u>
+					
+				<a ng-href="#!/music/{{Song.firebasekey}}/edit">Edit Song</a>
+				<button ng-click="deleteSong(Song.firebasekey)">X</button>
+
+</section>
+
+<a ng-href="#!/music/addnewsong">Add New Song</a>
