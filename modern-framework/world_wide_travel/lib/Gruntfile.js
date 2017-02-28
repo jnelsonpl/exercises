@@ -3,7 +3,7 @@ module.exports = function(grunt) {
   grunt.initConfig({
     jshint: {
       options: {
-        predef: [ "document", "console", "$", "$scope", "firebase"],
+        predef: [ "document", "console", "$", "$scope" ],
         esnext: true,
         globalstrict: true,
         globals: {"angular": true, "app": true}
@@ -13,7 +13,7 @@ module.exports = function(grunt) {
     sass: {
       dist: {
         files: {
-          '../css/styles.css': '../sass/styles.scss'
+          '../css/main.css': '../sass/main.scss'
         }
       }
     },
@@ -31,5 +31,5 @@ module.exports = function(grunt) {
 
   require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
 
-  grunt.registerTask('default', ['jshint', 'sass', 'watch']);
+  grunt.registerTask('default', ['jshint', 'watch']);
 };
