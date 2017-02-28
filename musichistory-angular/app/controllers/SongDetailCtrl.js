@@ -4,9 +4,6 @@ app.controller('SongDetailCtrl', function ($scope, $routeParams, AuthFactory, Mu
 
 	let user = AuthFactory.getUser();
 
-	console.log($routeParams.songId);
-	console.log($routeParams);
-
 	MusicFactory.getMusicList(user).then(function (dataReceived) {
 		$scope.music = dataReceived;
 

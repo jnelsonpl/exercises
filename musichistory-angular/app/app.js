@@ -3,16 +3,14 @@
 var app = angular.module('MusicApp', ["ngRoute"]);
 
 //used to authenticate user when navigating to other views
-let isAuth = (AuthFactory) => new Promise ( (resolve, reject) => {
-    console.log("running isAuth");
-    AuthFactory.isAuthenticated()
-    .then ( (userExists) => {
-    console.log("userExists", userExists);
+let isAuth = (AuthFactory) => new Promise (function (resolve, reject) {
+    AuthFactory.isAuthenticated().then(function (userExists) {
+        console.log("user: ", userExists);
         if (userExists){
-      console.log("Authenticated, go ahead.");
+            console.log("Authenticated, go ahead.");
             resolve();
         } else {
-      console.log("Authentication rejected, go away.");
+            console.log("Authentication rejected, go away.");
             reject();
         }
     });
@@ -24,21 +22,33 @@ app.config(function($routeProvider) {
         templateUrl: 'template/login.html',
         controller: 'UserCtrl'
     }).
+    when('/login', {
+        templateUrl: 'template/login.html',
+        controller: 'UserCtrl'
+    }).
+    when('/logout', {
+        templateUrl: 'template/login.html',
+        controller: 'UserCtrl'
+    }).
     when('/music/list', {
         templateUrl: 'template/SongList-template.html',
-        controller: 'SongListCtrl'
+        controller: 'SongListCtrl',
+        resolve: {isAuth}
     }).
-    when('/music/addnewsong', {
+    when('/music/addSong', {
         templateUrl: 'template/SongForm-template.html',
-        controller: 'SongAddCtrl'
+        controller: 'SongAddCtrl',
+        resolve: {isAuth}
     }).
     when('/music/:songId', {
         templateUrl: 'template/SongDetail-template.html',
-        controller: 'SongDetailCtrl'
+        controller: 'SongDetailCtrl',
+        resolve: {isAuth}
     }).
     when('/music/:songId/edit', {
         templateUrl: 'template/SongForm-template.html',
-        controller: 'SongEditCtrl'
+        controller: 'SongEditCtrl',
+        resolve: {isAuth}
     }).otherwise('/');
 });
 

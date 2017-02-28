@@ -1,18 +1,21 @@
 'use strict';
 
 // login, logout, register, loginGoogle, conditional, authfactory
-app.controller('UserCtrl', function ($scope, $window, $location, AuthFactory) {
+app.controller('UserCtrl', function ($scope, $window, AuthFactory) {
+
+	// $scope.isLoggedIn = false;
 
 	$scope.account = {
 		email: '',
 		password: ''
 	};
 
-	let logout = () => {
+	$scope.logout = () => {
 		console.log("logout clicked");
 		AuthFactory.logoutUser().then(function(data){
 			console.log("logged out?", data);
 			$window.location.url = "#!/login";
+			$scope.isLoggedIn = false;
 		}, function(error){
 			console.log("error occured on logout");
 		});
@@ -20,7 +23,7 @@ app.controller('UserCtrl', function ($scope, $window, $location, AuthFactory) {
 
 	//when first loaded, make sure no one is logged in
 	if(AuthFactory.isAuthenticated()){
-		logout();
+		$scope.logout();
 	}
 
 	$scope.register = () => {
@@ -28,7 +31,7 @@ app.controller('UserCtrl', function ($scope, $window, $location, AuthFactory) {
 	    AuthFactory.createUser({
 	      email: $scope.account.email,
 	      password: $scope.account.password
-	    }).then( (userData) => {
+	    }).then((userData) => {
 	      console.log("UserCtrl newUser:", userData );
 	      $scope.login();
 	    }, (error) => {
@@ -40,30 +43,21 @@ app.controller('UserCtrl', function ($scope, $window, $location, AuthFactory) {
     	console.log("you clicked login");
     	AuthFactory.loginUser($scope.account)
 	    .then( () => {
-	        // $scope.isLoggedIn = true;
-	        // console.log("UserCtrl: user is loggedIn", $scope.isLoggedIn );
-	        // $scope.$apply();
-	     	$window.location.href = "#!/music/list";
+	    	console.log("UserCtrl: user is loggedIn", $scope.isLoggedIn );
+	        $scope.isLoggedIn = true;
+	        $window.location.href = "#!/music/list";
 	    });
 	};
 
 	$scope.loginGoogle = () => {
 		console.log("you clicked login with Google");
 		AuthFactory.authWithProvider().then(function(result) {
-	    	var user = result.user.uid;
-	    	console.log("logged in user:", user);
+	    	console.log("logged in user: ", result.user.uid);
 	    	//Once logged in, go to another view
-	    	$location.path("/music/list");
-	    	$scope.$apply();
+	    	$scope.isLoggedIn = true;
+	    	$window.location.href = "#!/music/list";
 	  	}).catch(function(error) {
-	    	// Handle the Errors.
 	    	console.log("error with google login", error);
-	    	var errorCode = error.code;
-	    	var errorMessage = error.message;
-	    	// The email of the user's account used.
-	    	var email = error.email;
-	    	// The firebase.auth.AuthCredential type that was used.
-	    	var credential = error.credential;
 	  	});
 	};
 

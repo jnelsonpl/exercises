@@ -4,50 +4,39 @@ app.factory('AuthFactory', function() {
 
 	let currentUser = null;
 
-	let createUser = function(userObj){
-		return firebase.auth().createUserWithEmailAndPassword(userObj.email, userObj.password)
-		.catch( function(error){
-			let errorCode = error.code;
-			let errorMessage = error.message;
-			console.log("error:", errorCode, errorMessage);
-		});
+	let createUser = function(userObj) {
+		return firebase.auth().createUserWithEmailAndPassword(userObj.email, userObj.password);
 	};
 
 	let loginUser = function(userObj) {
-		return firebase.auth().signInWithEmailAndPassword(userObj.email, userObj.password)
-		.catch( function(error){
-			let errorCode = error.code;
-			let errorMessage = error.message;
-			console.log("error:", errorCode, errorMessage);
-		});
+		return firebase.auth().signInWithEmailAndPassword(userObj.email, userObj.password);
 	};
 
-	let logoutUser = function(){
+	let logoutUser = function() {
 		console.log("logoutUser");
 		return firebase.auth().signOut();
 	};
 
-	let isAuthenticated = function (){
-		console.log("AuthFactory: isAuthenticated");
-		return new Promise ( (resolve, reject) => {
-			firebase.auth().onAuthStateChanged((user) => {
+	let isAuthenticated = function () {
+		return new Promise (function (resolve, reject) {
+			firebase.auth().onAuthStateChanged(function (user) {
 				if (user){
 					currentUser = user.uid;
 					resolve(true);
-				}else {
+				} else {
 					resolve(false);
 				}
 			});
 		});
 	};
 
-	let getUser = function(){
+	let getUser = function() {
 		return currentUser;
 	};
 
 	let provider = new firebase.auth.GoogleAuthProvider();
 
-	let authWithProvider= function(){
+	let authWithProvider = function() {
     	return firebase.auth().signInWithPopup(provider);
   	};
 

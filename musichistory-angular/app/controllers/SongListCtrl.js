@@ -1,6 +1,6 @@
 'use strict';
 
-app.controller('SongListCtrl', function ($scope, $location, AuthFactory, MusicFactory) {
+app.controller('SongListCtrl', function ($scope, AuthFactory, MusicFactory) {
 
     let user = AuthFactory.getUser();
 
