@@ -3,7 +3,12 @@
 // login, logout, register, loginGoogle, conditional, authfactory
 app.controller('UserCtrl', function ($scope, $window, AuthFactory) {
 
-	// $scope.isLoggedIn = false;
+/*
+	$location does not cause a full page reload when the browser URL is changed. 
+	To reload the page after changing the URL, use the lower-level API, $window.location.href.
+	http://docs.angularjs.org/guide/dev_guide.services.$location
+ */
+	$scope.isLoggedIn = false;
 
 	$scope.account = {
 		email: '',
@@ -32,10 +37,10 @@ app.controller('UserCtrl', function ($scope, $window, AuthFactory) {
 	      email: $scope.account.email,
 	      password: $scope.account.password
 	    }).then((userData) => {
-	      console.log("UserCtrl newUser:", userData );
+	      console.log("UserCtrl newUser: ", userData );
 	      $scope.login();
 	    }, (error) => {
-	        console.log("Error creating user:", error);
+	        console.log("Error creating user: ", error);
 	    });
   	};
 

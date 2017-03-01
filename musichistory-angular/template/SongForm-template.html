@@ -1,31 +1,32 @@
-<!--- add music view, hidden by default -->
 
-          <h1>{{title}}</h1>
-          <form>
-            <div class="form-group">
-              <label>Album: </label>
-              <input type="text" class="form-control" placeholder="Album" ng-model="newSong.album" />
-			     </div>
+<h1>{{title}}</h1>
 
-            <div class="form-group">
-              <label>Artist:</label>
-              <input type="text" class="form-control" placeholder="Artist"  ng-model="newSong.artist"/>
-            </div>
+<form>
 
+  <div>
+    <label>Album: </label>
+    <input type="text" class="form-control" placeholder="Album" ng-model="newSong.album" />
+  </div>
 
-            <div class="form-group">
-              <label>Title:</label>
-              <input type="text" class="form-control" placeholder="Song Title" ng-model="newSong.title" />
-            </div>
+  <div>
+    <label>Artist:</label>
+    <input type="text" class="form-control" placeholder="Artist"  ng-model="newSong.artist"/>
+  </div>
 
+  <div>
+    <label>Title:</label>
+    <input type="text" class="form-control" placeholder="Song Title" ng-model="newSong.title" />
+  </div>
 
-            <div class="form-group">
-              <label>Genre:</label>
-              <input type="text" class="form-control" placeholder="Genre" ng-model="newSong.genre" />
-            </div>
+  <div>
+    <label>Genre:</label>
+    <input type="text" class="form-control" placeholder="Genre" ng-model="newSong.genre" />
+  </div>
 
-            <!-- TODO: bind this button to a function -->
-            <button class="btn btn-default" ng-click="addNewSong()">{{btnText}}</button>
-          </form>
+  <br />
+
+  <button class="btn btn-default" ng-click="addNewSong()">{{btnText}}</button>
+
+</form>
 
 

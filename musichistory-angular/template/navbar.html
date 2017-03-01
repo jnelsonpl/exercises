@@ -1,7 +1,19 @@
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-default" ng-controller="NavCtrl">
 
-<a ng-show="!isLoggedin" href="#!/login">Login</a>
-<a ng-show="!isLoggedin" href="#!/music/list">View Items</a>
-<a ng-show="!isLoggedin" href="#!/logout">Logout</a>
+	<h1>Music History</h1>
+
+	<br />
+
+	<a ng-show="isLoggedIn" href="#!/music/addSong">Add Song</a> <br />
+	<a ng-show="isLoggedIn" href="#!/music/list">View Songs</a> <br />
+	<a ng-show="isLoggedIn" href="#!/logout">Logout</a>
+	
+	<br /><br />
+
+	<div ng-show="isLoggedIn">
+		<input type="text" placeholder="Search Your Music" ng-model="searchText.search" id="searchbar">
+	</div>
+
+	<br /><br />
 
 </nav>

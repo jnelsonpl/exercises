@@ -12,8 +12,12 @@
 
 <body ng-app="MusicApp">
 
-<div ng-include="'template/navbar.html'"></div>
-<div ng-view></div>
+	<div class="container">
+
+		<div ng-include="'template/navbar.html'"></div>
+		<div ng-view></div>
+
+	</div>
 
 <script type="text/javascript" src="lib/node_modules/firebase/firebase.js"></script>
 <script type="text/javascript" src="lib/node_modules/jquery/dist/jquery.min.js"></script>
@@ -26,7 +30,9 @@
 
 <script type="text/javascript" src="app/factories/AuthFactory.js"></script>
 <script type="text/javascript" src="app/factories/MusicFactory.js"></script>
+<script type="text/javascript" src="app/factories/FilterFactory.js"></script>
 
+<script type="text/javascript" src="app/controllers/NavCtrl.js"></script>
 <script type="text/javascript" src="app/controllers/UserCtrl.js"></script>
 <script type="text/javascript" src="app/controllers/SongListCtrl.js"></script>
 <script type="text/javascript" src="app/controllers/SongAddCtrl.js"></script>

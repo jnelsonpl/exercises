@@ -3,10 +3,21 @@
 <h1>Song Details</h1>
 
 <ul class="list-group">
-    <li class="list-group-item"><strong>Title: </strong> {{selectedSong.title}}</li>
-    <li class="list-group-item"><strong>Artist:</strong> {{selectedSong.artist}}</li>
-    <li class="list-group-item"><strong>Album:</strong> {{selectedSong.album}}</li>
-    <li class="list-group-item"><strong>Genre:</strong> {{selectedSong.genre}}</li>
+    <li class="list-group-item">
+    	<strong>Title: </strong> {{selectedSong.title}}
+    </li>
+    
+    <li class="list-group-item">
+    	<strong>Artist:</strong> {{selectedSong.artist}}
+    </li>
+    
+    <li class="list-group-item">
+    	<strong>Album:</strong> {{selectedSong.album}}
+   	</li>
+    
+    <li class="list-group-item">
+    	<strong>Genre:</strong> {{selectedSong.genre}}
+    </li>
 </ul>
 
 <button class="btn btn-info"><a ng-href="#!/items/{{selectedSong.firebasekey}}">Edit</a></button>

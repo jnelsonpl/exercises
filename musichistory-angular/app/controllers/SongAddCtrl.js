@@ -1,6 +1,6 @@
 'use strict';
 
-app.controller('SongAddCtrl', function($scope, $location, AuthFactory, MusicFactory) {
+app.controller('SongAddCtrl', function($scope, $window, $location, AuthFactory, MusicFactory) {
 
 	let user = AuthFactory.getUser();
 
@@ -17,7 +17,7 @@ app.controller('SongAddCtrl', function($scope, $location, AuthFactory, MusicFact
 
 	$scope.addNewSong = function () {
 		MusicFactory.addNewSong($scope.newSong).then(function (response) {
-			$location.url('music/list');
+			$location.url('/music/list');
 		});
 		console.log('added new song', $scope.newSong);
 		$scope.newSong = {};
