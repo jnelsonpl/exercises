@@ -33,16 +33,16 @@ var createAnimal = {
 			genus: {value: 'Panthera'},
 			species: {value: 'Panthera Leo'},
 	});
-
-		var TimTheLion = Object.create(createAnimal, {
+		/* inherit from lion */
+		var TimTheLion = Object.create(Lion, {
 			name: {value: 'Tim the Lion'},
 			sex: {value: 'male'}
 		});
 
-		var KatnissTheLioness = Object.create(createAnimal, {
+		var KatnissTheLioness = Object.create(Lion, {
 			name: {value: 'Katniss The Lioness'},
 			sex: {value: 'female'}
-		});
+		}); /* end lion */
 
 	console.log('We inherit all the properties of Lion');
 	console.log( TimTheLion );
