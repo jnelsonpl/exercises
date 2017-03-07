@@ -39,7 +39,7 @@ var createAnimal = {
 			sex: {value: 'male'}
 		});
 
-		var KatnissTheLioness = Object.create(Lion, {
+		var KatnissTheLioness = Object.create(createAnimal, {
 			name: {value: 'Katniss The Lioness'},
 			sex: {value: 'female'}
 		});
